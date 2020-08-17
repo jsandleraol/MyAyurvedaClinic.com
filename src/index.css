@@ -1,7 +1,7 @@
 :root {
   --logo-green: #59ba47;
-  --light-hyperlink-green: #72bd57;
-  --dark-hyperlink-green: #33743a;
+  --light-hyperlink-green: #297db6;
+  --dark-hyperlink-green: #1474b4;
 
   --header-font-white: #cccccc;
   --paragraph-font-grey: #b4b5b7;
@@ -20,15 +20,25 @@ html {
   height: 100%;
   width: 100%;
   margin: 0px;
-  font-family: 'Helveltica';
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   scroll-behavior: smooth;
   text-decoration: none;
 }
 
 body {
   background-color: var(--background-general);
+} 
+
+a{
+  text-decoration: none;
+  color: inherit;
 }
 
-.empty_navbar{
-  height: 200px;
+.empty_top_space{
+  height: 72px;
 }
+
+
+@import './App.css';
+@import './components/Navbar/navbar.css';
+@import './components/home/home.css';

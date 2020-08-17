@@ -1,0 +1,38 @@
+.header{
+    margin-top: 20px;
+    color: black;
+    font-size: min(7vw,70px);
+    text-align: center;
+}
+
+.search_container{
+display: flex;
+align-items: center;
+width: 40vw;
+height: 40px;
+border-radius: 1px;
+border: 1px solid black;
+}
+
+.search_input{
+    width: 100%;
+    padding: 12px;
+    border: 0px solid white;
+    border-radius: 0px !important;
+}
+
+.search_button{
+    width: 90px;
+    height: 100%;
+    border: 0px solid white;
+    background-color: var(--dark-hyperlink-green);
+    color: white;
+}
+.search_button > svg{
+    width: 30px;
+    height: 30px;
+}
+
+.search_button:hover{
+    background-color: var(--light-hyperlink-green);
+}

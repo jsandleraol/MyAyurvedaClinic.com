@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from "./components/home/home";
-import Navbar from "./components/NavBar";
-
+import Navbar from "./components/Navbar/Navbar.js";
 
 const App = () => (
 <Router>

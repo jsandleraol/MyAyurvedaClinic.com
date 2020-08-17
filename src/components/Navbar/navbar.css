@@ -1,0 +1,166 @@
+.navbar_container{
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  width: 100%;
+  height: 60px;
+  background-color: whitesmoke;
+}
+
+
+.logo_container{
+height: 60px;
+width: 60px;
+margin-left: 85px;
+}
+
+.cover_image{
+width: 100%;
+height: 100%;
+object-fit: cover
+}
+
+.navbar_links_container{
+  margin-left: auto;
+}
+
+.navbar_links{
+  display: inline-block;
+  margin: 0 15px 0 15px;
+  color: black;
+  cursor: pointer;
+}
+.navbar_links:hover{
+  color: gray;
+}
+
+.shopping_item_container{
+  margin: 0 30px 0 15px;
+  cursor: pointer;
+}
+
+.shopping_item_container > svg {
+  color: black;
+}
+.cart_items{
+  position: absolute;
+  top: 12px;
+  right: 22px;
+  background-color: green;
+  border-radius: 50px;
+  width: 18px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+    position: absolute;
+    width: 30px;
+    height: 23px;
+    left: 30px;
+    top: 26px;
+  }
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: rgb(63, 61, 61);
+  height: 7% !important;
+  width: 100% !important;
+}
+
+/* Position and sizing of clickable cross button  */
+.bm-cross-button {
+  left: 450px;
+  cursor: pointer;
+}
+
+/* Color/shape of close button cross  */
+.bm-cross {
+  background: #ffffff;
+  height: 22px !important;
+}
+
+
+/* General sidebar styles */
+.bm-menu {
+  background: rgb(255, 255, 255);
+  font-size: 1em;
+  width: 420px;
+  height: 92vh !important;
+  /* width: 100%; */
+}
+.bm-menu-wrap{
+  position: fixed;
+  margin-top: 36px;
+  left: 0;
+  width: 206% !important;
+}
+
+/* Morph shape necessary with bubble or elastic */
+/* .bm-morph-shape {
+  fill: rgb(250, 249, 249);
+} */
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+/* Individual item */
+.bm-item {
+  display: flex;
+  text-decoration: none;
+  padding: 12px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+/* Individual item text */
+.bm-item-text{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.bm-item-text > svg{
+margin-left: auto;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  background-color: lightgrey;
+}
+
+
+/* Styling of overlay */
+.bm-overlay {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.801) !important;
+} 
+
+.welcome_text_menu{
+background-color: teal;
+color: white;
+font-size: 20px
+}
+
+.separator{
+  border-bottom: 1px solid #d5dbdb;
+  padding: 2px 0 0 0;
+}
+
+.menu_footer_text{
+  margin-left: auto;
+  font-size: 12px;
+}
+.menu_footer_text:hover{
+  background-color: rgb(255, 255, 255);
+}
