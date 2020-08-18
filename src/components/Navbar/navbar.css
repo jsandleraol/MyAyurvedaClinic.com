@@ -97,7 +97,7 @@ object-fit: cover
   position: fixed;
   margin-top: 36px;
   left: 0;
-  width: 206% !important;
+  width: auto !important;
 }
 
 /* Morph shape necessary with bubble or elastic */
