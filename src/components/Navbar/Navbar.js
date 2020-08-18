@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import Logo from "../../resources/Ayurveda_Health_Logo.png"
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Badge from '@material-ui/core/Badge';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // const toggleMenu = () => {
     //     setMenuOpen(!menuOpen);
@@ -17,6 +19,14 @@ const NavBar = () => {
     const stateChangeHandler = (newState) => {
         setMenuOpen(newState.isOpen);
       };
+
+    let BadgeCSS = {
+      margin: '0 30px 0 0',
+    }
+
+    let ShoppingCartIconCSS={
+      margin: '0 0 0 15px',
+    }
     return(
     <div>
       <div className="empty_top_space"></div>
@@ -64,10 +74,9 @@ const NavBar = () => {
               :
               <Link to="/login" className="navbar_links"> Welcome, Sign in </Link> }
             </div>
-            <Link to="/cart" className="shopping_item_container">
-              <div className="cart_items"> 1 </div>
-              <ShoppingCartIcon/>
-            </Link>
+            <Badge color="secondary" badgeContent="1" style={BadgeCSS}>
+              <ShoppingCartIcon style={ShoppingCartIconCSS}/>
+            </Badge>
         </div>
     </div>
     )

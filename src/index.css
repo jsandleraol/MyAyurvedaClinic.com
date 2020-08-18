@@ -1,7 +1,7 @@
 :root {
   --logo-green: #59ba47;
-  --light-hyperlink-green: #297db6;
-  --dark-hyperlink-green: #1474b4;
+  --light-hyperlink-green: rgb(8, 172, 172);
+  --dark-hyperlink-green: rgb(12, 139, 139);
 
   --header-font-white: #cccccc;
   --paragraph-font-grey: #b4b5b7;
