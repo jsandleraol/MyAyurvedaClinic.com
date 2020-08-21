@@ -1,4 +1,7 @@
 .top{
+    margin: 60px 0 200px 0;
+}
+.header_container{
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -6,35 +9,28 @@
 }
 
 .header{
-    margin-top: 50px;
     color: black;
-    font-size: min(7vw,80px);
+    font-size: min(8vw,80px);
     text-align: center;
 }
 
 .search{
     display: flex;
     align-items: center;
-    margin-top: 80px;
-    width: 60vw;
-    height: 50px;
+    margin-top: 2.8vw;
+    width: 1200px;
+    min-width: 340px;
     border-radius: 1px;
-    border: 0.5px solid lightgrey;
+    border: 0px solid white;
 }
 
 .search_input{
     width: 100%;
-    margin: 0;
-    padding: 13px;
-    border: 0px solid white;
-    border-radius: 0px !important;
+    padding: 12px;
+    border: 0.5px solid lightgrey;
+    border-radius: 1px;
     font-size: 20px;
     color: var(--nofocus-font-grey);
-}
-
-.search_button_icon{
-    width: 50px;
-    height: 50px;
 }
 
 .top_description{
@@ -51,7 +47,7 @@ ul{
     display: flex;
     align-items: center;
     margin: 8px 0;
-    font-size: 22px;
+    font-size: min(6vw,22px);
 }
 
 .benefits, .quick_call_button{
@@ -59,7 +55,7 @@ ul{
     flex-direction: column;
     justify-items: left;
     width: 50%;
-    margin: 130px 0 80px 0;
+    margin-top: 100px;
 }
 
 .quick_call_button{
@@ -68,49 +64,143 @@ ul{
 
 .call_button_text{
     margin-top: 10px;
-    font-size: 22px;
+    font-size: min(6vw,22px);
 }
 
-
-
-.ayurveda_intro{
+.ayurveda{
+    position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 0px 0;
+    padding: 130px 0;
     background-color: rgb(248, 242, 232);
 }
 
 .ayur_intro_text{
-    display: flex;
-    justify-content: right;
-    margin-top: 250px;
-    font-size: 20px;
+    width:  50%;
+    font-size: min(3vw, 20px);
 }
 
 .ayur_text{
-    margin-left: auto;
+    margin-top: 130px;
+    float: right;
+}
+
+.read_more{
+    color: blue;
 }
 
 .ayurveda_header{
     display: flex;
     flex-direction: column;
+    justify-items: center;
+    width: 50%;
     font-family: Georgia;
-    margin: 100px 0; 
 }
 
-.ayurveda_header, .ayur_intro_text{
-    width: 50%;
-    margin-bottom: 150px;
-}
 .ayurveda_header_textA{
-    margin: 0;
-    padding: 0;
-    font-size: 80px;
-    float: left;
+    font-size: min(14vw, 90px)
 }
+
 .ayurveda_header_textB{
-    margin: 0;
-    padding: 0;
-    font-size: 100px;
-    margin-left: 12vw;
+    font-size: min(16.5vw, 120px);
+    margin-left: 7%;
+}
+
+
+.home_testimonials{
+    height: auto;
+    width: 100%;
+}
+
+.testimonial_card_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row;
+    padding: 20px 20%;
+}
+
+@media (max-width: 1200px){
+    .search{
+        width: 100%;
+    }
+    .ayurveda{
+        flex-direction: column-reverse;
+        padding: 110px 10% 110px 20%;
+    }
+    .ayur_intro_text, .ayurveda_header{
+        width: 100%;
+    }
+
+    .ayur_text{
+        margin: 30px 0;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 625px){
+    .benefits, .quick_call_button{
+        margin-top: 60px;
+    }
+    .call_button_text{
+        width: 280px;
+    }
+    .ayurveda{
+        padding: 110px 0;
+    }
+
+    .ayurveda_header{
+        padding-left: 5%;
+    }
+
+    .ayur_intro_text{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .ayur_text{
+        float: none;
+    }
+}
+
+@media (max-width: 625px){
+    .top{
+        margin-bottom: 120px;
+    }
+    .search{
+        position: fixed;
+        top: 57px;
+        z-index: 1;
+    }
+
+    .top_description{
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .benefits, .quick_call_button{
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .ayurveda{
+        padding: 110px 0;
+    }
+
+    .ayurveda_header_textA{
+        padding-left: 20px;
+    }
+    
+    .ayurveda_header_textB{
+        margin: 0;
+        padding-left: 50px;
+    }
+    .ayur_intro_text{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .ayur_text{
+        float: none;
+    }
 }

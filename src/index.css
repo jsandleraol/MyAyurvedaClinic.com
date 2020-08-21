@@ -18,11 +18,11 @@
 body,
 html {
   height: 100%;
-  width: 100%;
   margin: 0px;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   scroll-behavior: smooth;
   text-decoration: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -34,11 +34,10 @@ a{
   color: inherit;
 }
 
-.empty_top_space{
-  height: 72px;
-}
+
 
 
 @import './App.css';
 @import './components/Navbar/navbar.css';
 @import './components/home/home.css';
+@import './components/reusable/reusable.css';

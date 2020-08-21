@@ -6,9 +6,10 @@ export const ScheduleCall = withStyles((theme) => ({
     root: {
       color: theme.palette.getContrastText(teal[500]),
       backgroundColor: teal[600],
-      width: "14vw",
-      height: "3vw",
-      fontSize: '17px',
+      width: '280px',
+      height: '45px',
+      padding: '3px',
+      fontSize: '20px',
       zIndex: '0',
       '&:hover': {
         backgroundColor: teal[400],
@@ -21,7 +22,7 @@ export const ScheduleCall = withStyles((theme) => ({
       color: theme.palette.getContrastText(teal[500]),
       backgroundColor: teal[600],
       width: "12vw",
-      height: "100%",
+      padding: '10px',
       borderRadius: 0,
       zIndex: '0',
       '&:hover': {

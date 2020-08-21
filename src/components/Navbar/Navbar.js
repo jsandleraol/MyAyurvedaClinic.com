@@ -21,11 +21,15 @@ const NavBar = () => {
       };
 
     let BadgeCSS = {
-      margin: '0 30px 0 0',
+      margin: '0 2vw 0 0',
     }
 
     let ShoppingCartIconCSS={
-      margin: '0 0 0 15px',
+      margin: '0 0 0 1vw',
+      width: '3vw',
+      height: '3vw',
+      maxHeight: '25px',
+      maxWidth: '25px',
     }
     return(
     <div>
@@ -57,6 +61,7 @@ const NavBar = () => {
               <div className="separator"></div>
               <Link to="/blog" ><div className="bm-item-text">Blog<NavigateNextIcon/></div></Link>
               <Link to="/market" ><div className="bm-item-text">Marketplace<NavigateNextIcon/></div></Link>
+              <Link to="/join" ><div className="bm-item-text">Join your practice<NavigateNextIcon/></div></Link>
               <Link to="/schedule" ><div className="bm-item-text">Video Consultation<NavigateNextIcon/></div></Link>
               {isLoggedIn ? <Link to="/help">Customer Service</Link>: <Link to="/help">Help</Link>}
               {!isLoggedIn ? <div className="menu_footer_text">New Patient? click <Link to="/signup" >here</Link></div> : null}
@@ -68,7 +73,7 @@ const NavBar = () => {
             </div>
             <div className="navbar_links_container">
               <Link to="/products" className="navbar_links">Products</Link>
-              <Link to="/practitioners" className="navbar_links">Ayurveda Practitioners</Link>
+              <Link to="/join" className="navbar_links">Join</Link>
               {isLoggedIn ?
               <div className="navbar_links"> Welcome, Jonathan </div>
               :
