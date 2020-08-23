@@ -108,17 +108,16 @@ ul{
 
 
 .home_testimonials{
-    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
     width: 100%;
+    padding: 120px 0;
+
 }
 
-.testimonial_card_container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: row;
-    padding: 20px 20%;
-}
 
 @media (max-width: 1200px){
     .search{

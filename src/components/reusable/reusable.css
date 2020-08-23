@@ -1,9 +1,14 @@
-.testimonial_card{
+.testimonial_card, .testimonial_card_filled{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    /* width: 33%; */
+    padding: 25px;
+    width: 300px;
+    height: 400px;
+}
+
+.testimonial_card_filled{
+    background-color: lightgrey;
 }
 .image{
     border-radius: 50%;
@@ -19,7 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 285px;
+    width: 100%;
     height: auto;
     /* text-indent: 20px; */
     letter-spacing: 1.4px;
