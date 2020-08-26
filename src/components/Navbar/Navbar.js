@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { slide as Menu } from "react-burger-menu";
+import React, { useState } from "../../../node_modules/react";
+import { Link } from "../../../node_modules/react-router-dom";
+import { slide as Menu } from "../../../node_modules/react-burger-menu/lib/BurgerMenu";
 import Logo from "../../resources/Ayurveda_Health_Logo.png"
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Badge from '@material-ui/core/Badge';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import NavigateNextIcon from '../../../node_modules/@material-ui/icons/NavigateNext';
+import ExitToAppIcon from '../../../node_modules/@material-ui/icons/ExitToApp';
+import Badge from "../../../node_modules/@material-ui/core/Badge";
+import ShoppingCartIcon from '../../../node_modules/@material-ui/icons/ShoppingCart';
 
 
 const NavBar = () => {

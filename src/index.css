@@ -13,6 +13,7 @@
   --input-grey: #2d2f36;
 
   --attention-red: #c10606;
+  --background-footer: #052727;
 }
 
 body,
@@ -29,15 +30,33 @@ body {
   background-color: var(--background-general);
 } 
 
+abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
 a{
   text-decoration: none;
   color: inherit;
 }
 
+ul{
+  list-style-position: outside;
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
 
 
 
 @import './App.css';
 @import './components/Navbar/navbar.css';
+@import './components/footer/footer.css';
 @import './components/home/home.css';
 @import './components/reusable/reusable.css';

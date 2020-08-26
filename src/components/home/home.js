@@ -3,6 +3,7 @@ import {useEffect, useState, useRef, useCallback} from 'react';
 import { Link } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import CheckIcon from '@material-ui/icons/Check';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import {ScheduleCall, SearchInput} from "../reusable/materialButtons"
 // import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import TestimonialCard from "../reusable/testimonialCard"
@@ -28,7 +29,7 @@ const Home = () => {
         observer.current = new IntersectionObserver(entries =>{
             if(entries[0].isIntersecting && hasMore){
                 setTestimonialsPerPage(prevPageNumber => prevPageNumber + 1)
-                console.log('Visible')
+                // console.log('Visible', loading)
             }
         })
         if(node) observer.current.observe(node)
@@ -58,6 +59,8 @@ const Home = () => {
         height: '1.5vw',
         minHeight: '25px',
         minWidth: '25px',
+        maxHeight: '45px',
+        maxWidth: '45px',
     }
 
     return(
@@ -73,11 +76,11 @@ const Home = () => {
         </div>
         <div className="top_description"> 
             <div className="benefits">
-                <li>
-                    <ul><CheckIcon style={CheckIconCSS}/> Root-cause treatment of disease</ul>
-                    <ul><CheckIcon style={CheckIconCSS}/> Top qualify specialists</ul>
-                    <ul><CheckIcon style={CheckIconCSS}/> Transparent prices</ul>
-                </li>
+                <ul>
+                    <span><CheckIcon style={CheckIconCSS}/> Root-cause treatment of disease</span>
+                    <span><CheckIcon style={CheckIconCSS}/> Top qualify specialists</span>
+                    <span><CheckIcon style={CheckIconCSS}/> Transparent prices</span>
+                </ul>
             </div>
             <div className="quick_call_button">
                 <ScheduleCall variant="contained" >Quick Video Call</ScheduleCall>
@@ -105,7 +108,7 @@ const Home = () => {
                 (currentTestimonials.length === index + 1) ?
                 <TestimonialCard ref={lastTestimonialRef} user={userList} key={userList.id}/>
                 : (<TestimonialCard user={userList} key={userList.id}/>))}
-                {loading && 'Loading...'}
+                {loading && <CircularProgress/>}
                 {error && 'Error'}
                 {/* {testimonialData.length & (testimonialData.map(user => <TestimonialCard user={user} key={user}/>))} */}
         </div>

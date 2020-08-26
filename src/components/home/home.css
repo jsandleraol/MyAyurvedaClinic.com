@@ -36,7 +36,7 @@
 .top_description{
     display: flex;
     justify-items: space-between;
-    align-items: center;
+    align-items: left;
 }
 
 .benefits{
@@ -45,9 +45,14 @@
 
 ul{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin: 8px 0;
     font-size: min(6vw,22px);
+}
+ul > span{
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
 }
 
 .benefits, .quick_call_button{
@@ -110,12 +115,9 @@ ul{
 .home_testimonials{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     justify-content: center;
-    align-content: flex-start;
     width: 100%;
     padding: 120px 0;
-
 }
 
 
