@@ -49,8 +49,8 @@
 .hr_container > hr{
     width: 60%;
     min-width: 400px;
-    border: 1px solid #353838;
-    border-top-color: #000;
+    border: 1px solid #000;
+    border-top-color: rgb(180, 180, 180);
 }
 
 .copyright{

@@ -3,8 +3,9 @@ import {useEffect, useState, useRef, useCallback} from 'react';
 import { Link } from "react-router-dom";
 import SearchIcon from '@material-ui/icons/Search';
 import CheckIcon from '@material-ui/icons/Check';
+import ClearIcon from '@material-ui/icons/Clear';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {ScheduleCall, SearchInput} from "../reusable/materialButtons"
+import {ScheduleCall, SearchButton} from "../reusable/materialButtons"
 // import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import TestimonialCard from "../reusable/testimonialCard"
 import {testimonialData} from '../testimonialData'
@@ -66,28 +67,33 @@ const Home = () => {
     return(
     <div>
         <div className="top">
-        <div className="header_container">
-        <div className="header">Customized recovery plans <br/> for every health issue</div>
-        <div className="search">
-            <input className="search_input"
-            placeholder="Health issue / Specialist's name / Product"/>
-            <SearchInput variant="contained" disableElevation><SearchIcon style={SearchIconCSS}/></SearchInput>
-        </div>
-        </div>
-        <div className="top_description"> 
-            <div className="benefits">
-                <ul>
-                    <span><CheckIcon style={CheckIconCSS}/> Root-cause treatment of disease</span>
-                    <span><CheckIcon style={CheckIconCSS}/> Top qualify specialists</span>
-                    <span><CheckIcon style={CheckIconCSS}/> Transparent prices</span>
-                </ul>
+            <div className="header_container">
+                <div className="header">Customized recovery plans <br/> for every health issue</div>
+                <div className="search">
+                    <form className="search_bar">
+                        <input className="bar_input"
+                        placeholder="Health issue / Specialist's name / Product"/>
+                        {/*  */}
+                        <SearchButton variant="contained" disableElevation>
+                            <SearchIcon style={SearchIconCSS}/>
+                            </SearchButton>
+                    </form>
+                    <div className="search_description"> 
+                        <div className="benefits">
+                            <ul>
+                                <span><CheckIcon style={CheckIconCSS}/> Root-cause treatment of disease</span>
+                                <span><CheckIcon style={CheckIconCSS}/> Top qualify specialists</span>
+                                <span><CheckIcon style={CheckIconCSS}/> Transparent prices</span>
+                            </ul>
+                        </div>
+                        <div className="quick_call_button">
+                            <ScheduleCall variant="contained" >Quick Video Call</ScheduleCall>
+                            <span className="quick_call_text">Connect now with the next available specialist</span>
+                            <span className="quick_call_text">Prices as low as $20/15min</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="quick_call_button">
-                <ScheduleCall variant="contained" >Quick Video Call</ScheduleCall>
-                <span className="call_button_text">Connect now with the next available specialist</span>
-                <span className="call_button_text">Prices as low as $20/15min</span>
-            </div>
-        </div>
         </div>
         <div className="ayurveda">
             <div className="ayur_intro_text">
@@ -101,7 +107,7 @@ const Home = () => {
             <div className="ayurveda_header">
                 <span className="ayurveda_header_textA">What is</span>
                 <span className="ayurveda_header_textB">Ayurveda?</span>
-                </div>
+            </div>
         </div>
         <div className="home_testimonials">
                 {currentTestimonials.map((userList, index) => 

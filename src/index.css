@@ -26,6 +26,7 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+
 body {
   background-color: var(--background-general);
 } 
@@ -41,6 +42,10 @@ abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, 
 a{
   text-decoration: none;
   color: inherit;
+}
+
+a:focus{
+  outline: 1px solid lightgray;
 }
 
 ul{

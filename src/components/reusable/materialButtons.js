@@ -17,7 +17,7 @@ export const ScheduleCall = withStyles((theme) => ({
     },
   }))(Button);
 
-  export const SearchInput = withStyles((theme) => ({
+  export const SearchButton = withStyles((theme) => ({
     root: {
       color: theme.palette.getContrastText(teal[500]),
       backgroundColor: teal[600],

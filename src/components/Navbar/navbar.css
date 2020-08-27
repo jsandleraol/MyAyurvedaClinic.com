@@ -52,6 +52,14 @@ object-fit: cover
     top: 28px;
   }
 
+.bm-burger-button:focus{
+    outline: none!important;
+}
+
+.bm-burger-bars:focus{
+  outline: none!important;
+}
+
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
   background: rgb(63, 61, 61);
@@ -60,16 +68,16 @@ object-fit: cover
 }
 
 /* Position and sizing of clickable cross button  */
-.bm-cross-button {
+/* .bm-cross-button {
   left: 450px;
   cursor: pointer;
-}
+} */
 
 /* Color/shape of close button cross  */
-.bm-cross {
+/* .bm-cross {
   background: #ffffff;
   height: 22px !important;
-}
+} */
 
 
 /* General sidebar styles */
@@ -80,10 +88,19 @@ object-fit: cover
   height: 92vh !important;
   /* width: 100%; */
 }
+
+.bm-menu:focus{
+  outline: none!important;
+}
+
 .bm-menu-wrap{
   position: fixed;
   margin-top: 36px;
   width: auto !important;
+}
+
+.bm-menu-wrap:focus{
+  outline: none !important;
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -104,9 +121,20 @@ object-fit: cover
   display: flex;
   text-decoration: none;
   padding: 12px;
+  margin: 0;
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
+
+.bm-item:focus{
+  outline: none;
+}
+
+.bm-item:focus-visible{
+  outline: 1px solid lightgray;
+}
+
+
 /* Individual item text */
 .bm-item-text{
   display: flex;
@@ -140,7 +168,7 @@ font-size: 20px;
 
 .separator{
   border-bottom: 1px solid #d5dbdb;
-  padding: 2px 0 0 0;
+  padding: 0;
 }
 
 .menu_footer_text{
