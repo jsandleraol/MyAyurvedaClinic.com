@@ -1,18 +1,18 @@
 import React from 'react'
 
-const AutoComplete = (props) => {
+const AutoComplete = ({suggestions, search, updateSeach}) => {
     // console.log("suggestions:", props.suggestions);
     // console.log("search:", props.search);
     return (
         <div className="autocomplete">
-            {props.suggestions
-                .filter(({ name }) => name.toLowerCase().indexOf(props.search.toLowerCase()) > -1)
+            {suggestions
+                .filter(({ name }) => name.toLowerCase().indexOf(search.toLowerCase()) > -1)
                 .map((value) => {
                     console.log('Value:', value.name);
                     return (
                         <div
-                            className="autocomplete_item"
-                            onClick={() => props.updateSeach(value.name)}
+                            className="autocomplete-item"
+                            onClick={() => updateSeach(value.name)}
                             key={value.name}
                             tabIndex="0"
                         >

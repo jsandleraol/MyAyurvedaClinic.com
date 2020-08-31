@@ -1,4 +1,4 @@
-import React, { useState } from "../../../node_modules/react";
+import React, { useState, useEffect } from "../../../node_modules/react";
 import { Link } from "../../../node_modules/react-router-dom";
 import { slide as Menu } from "../../../node_modules/react-burger-menu/lib/BurgerMenu";
 import Logo from "../../resources/Ayurveda_Health_Logo.png"
@@ -6,11 +6,25 @@ import NavigateNextIcon from '../../../node_modules/@material-ui/icons/NavigateN
 import ExitToAppIcon from '../../../node_modules/@material-ui/icons/ExitToApp';
 import Badge from "../../../node_modules/@material-ui/core/Badge";
 import ShoppingCartIcon from '../../../node_modules/@material-ui/icons/ShoppingCart';
+import { useLocation } from 'react-router-dom';
+import SearchBar from "../reusable/searchBar"
 
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(true);
+  const [currentPath, setCurrentPath] = useState('');
+
+
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location]);
+  console.log("currentPath", currentPath)
+
+ 
 
   // const toggleMenu = () => {
   //     setMenuOpen(!menuOpen);
@@ -38,15 +52,15 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="empty_top_space"></div>
-      <div className="navbar_container">
+      <div className="empty-top-space"></div>
+      <div className="navbar-container">
         <Menu
           isOpen={menuOpen}
           onStateChange={(state) => stateChangeHandler(state)}>
           {isLoggedIn ?
-            <div className="welcome_text_menu"> Welcome, Jonathan </div>
+            <div className="welcome-text-menu"> Welcome, Jonathan </div>
             :
-            <Link to="/login" className="welcome_text_menu"><div className="bm-item-text"> Welcome,  log in <ExitToAppIcon /></div></Link>}
+            <Link to="/login" className="welcome-text-menu"><div className="bm-item-text"> Welcome,  log in <ExitToAppIcon /></div></Link>}
           <Link to="/account" ><div className="bm-item-text">Your Account <NavigateNextIcon /></div></Link>
           <Link to="/profile"><div className="bm-item-text">Your Profile<NavigateNextIcon /></div></Link>
           <Link to="/appointments"><div className="bm-item-text">Your Appointments<NavigateNextIcon /></div></Link>
@@ -69,20 +83,25 @@ const NavBar = () => {
           <Link to="/join" ><div className="bm-item-text">Join your practice<NavigateNextIcon /></div></Link>
           <Link to="/schedule" ><div className="bm-item-text">Video Consultation<NavigateNextIcon /></div></Link>
           {isLoggedIn ? <Link to="/help">Customer Service</Link> : <Link to="/help">Help</Link>}
-          {!isLoggedIn ? <div className="menu_footer_text">New Patient? click <Link to="/signup" >here</Link></div> : null}
+          {!isLoggedIn ? <div className="menu-footer-text">New Patient? click <Link to="/signup" >here</Link></div> : null}
         </Menu>
-        <div className="logo_container">
+        <div className="logo-container">
           <Link to="/">
-            <img src={Logo} alt="logo" className="cover_image" />
+            <img src={Logo} alt="logo" className="cover-image" />
           </Link>
         </div>
-        <div className="navbar_links_container">
-          <Link to="/products" className="navbar_links">Products</Link>
-          <Link to="/join" className="navbar_links">Join</Link>
+        {currentPath === '/search' ?
+        <SearchBar displaySmall={true}/>
+        : null}
+        <div className="navbar-links-container">
+          <Link to="/products" className="navbar-links">Products</Link>
+          <Link to="/massages" className="navbar-links">Massages</Link>
+          <Link to="/classes" className="navbar-links">Online Classes</Link>
+          <Link to="/join" className="navbar-links">Join</Link>
           {isLoggedIn ?
-            <div className="navbar_links"> Welcome, Jonathan </div>
+            <div className="navbar-links"> Welcome, Jonathan </div>
             :
-            <Link to="/login" className="navbar_links"> Welcome, Sign in </Link>}
+            <Link to="/login" className="navbar-links"> Welcome, Sign in </Link>}
         </div>
         <Badge color="secondary" badgeContent="1" style={BadgeCSS}>
           <ShoppingCartIcon style={ShoppingCartIconCSS} />

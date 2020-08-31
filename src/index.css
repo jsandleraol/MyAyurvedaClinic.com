@@ -64,4 +64,5 @@ li {
 @import './components/Navbar/navbar.css';
 @import './components/footer/footer.css';
 @import './components/home/home.css';
+@import './components/search/search.css';
 @import './components/reusable/reusable.css';

@@ -8,28 +8,28 @@
     margin: 0 auto;
 }
 
-.footer_links_background{
+.footer-links-background{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.footer_links{
+.footer-links{
     width: 200px;
     margin: 20px 2.60vw;
 }
-.footer_links > ul li{
+.footer-links > ul li{
     line-height: 1.6;
     font-size: 1.6rem;
 }
 
-.footer_title{
+.footer-title{
     font-size: 30px;
     font-weight: 600;
     color: white;
 }
 
-.footer_single_link{
+.footer-single-link{
     width: auto;
     color: white;
     font-size: 22px;
@@ -37,18 +37,19 @@
 
 }
 
-.footer_single_link:hover{
+.footer-single-link:hover{
     color: lightgray
 }
 
-.hr_container{
+.hr-container{
     margin: 20px 5vw;
     display: flex;
     justify-content: center;
 }
-.hr_container > hr{
+.hr-container > hr{
     width: 60%;
     min-width: 400px;
+    max-width: 1200px;
     border: 1px solid #000;
     border-top-color: rgb(180, 180, 180);
 }
@@ -67,33 +68,33 @@
 }
 
 @media (max-width: 1025px){
-    .footer_links_background{
+    .footer-links-background{
         justify-content: left;
         flex-direction: column;
     }
-    .footer_links > ul li{
+    .footer-links > ul li{
         line-height: 1.2;
         font-size: 1.6rem;
     }
 
-    .footer_title{
+    .footer-title{
         font-size: 25px
     }
-    .footer_single_link{
+    .footer-single-link{
         margin: 2px;
         font-size: 18px;
     }
-    .footer_links{
+    .footer-links{
         width: 200px;
         margin: 20px 50px;
     }
 }
 
 @media (max-width: 510px){
-    .footer_title{
+    .footer-title{
         font-size: 25px
     }
-    .footer_single_link{
+    .footer-single-link{
         margin: 2px;
         font-size: 18px;
     }

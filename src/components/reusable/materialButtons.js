@@ -21,7 +21,7 @@ export const SearchButton = withStyles((theme) => ({
   root: {
     color: theme.palette.getContrastText(teal[500]),
     backgroundColor: teal[600],
-    width: "200px",
+    width: "12vw",
     padding: '10px',
     borderRadius: 0,
     zIndex: '0',
