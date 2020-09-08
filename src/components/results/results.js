@@ -1,13 +1,13 @@
 import React from 'react'
-import Search from './search'
+import Filter from './filter'
 
-const Results = () =>{
-return(
-    <div>
-        <Search/>
-
-    </div>
-)
+const Results = () => {
+    return (
+        <div>
+            <Filter />
+            
+        </div>
+    )
 }
 
 export default Results;

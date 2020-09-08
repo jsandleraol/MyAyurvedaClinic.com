@@ -24,7 +24,9 @@ const MenuBar = () => {
     <div>
         <Menu
           isOpen={menuOpen}
-          onStateChange={(state) => stateChangeHandler(state)}>
+          onStateChange={(state) => stateChangeHandler(state)}
+          // onFocus={e => e.target.blur()}
+          >
           {isLoggedIn ?
             <div className="welcome-text-menu"> Welcome, Jonathan </div>
             :

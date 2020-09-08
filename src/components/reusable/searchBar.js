@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import AutoComplete from './autoComplete'
 import { SearchButton } from "./materialButtons"
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,7 +7,7 @@ import { InputOptions } from '../testimonialData'
 
 
 
-const SearchBar = ({displaySmall}) => {
+const SearchBar = ({ displaySmall }) => {
     const [search, setSearch] = useState('');
     const suggestions = InputOptions;
     const wrapperRef = useRef(null);
@@ -53,8 +53,8 @@ const SearchBar = ({displaySmall}) => {
         }
     };
 
-    let CSSform = displaySmall ? "search-small" : "search-bar" 
-    
+    let CSSform = displaySmall ? "search-small" : "search-bar"
+
     return (
         <form className={CSSform} ref={wrapperRef}>
             <div className="bar-input">
