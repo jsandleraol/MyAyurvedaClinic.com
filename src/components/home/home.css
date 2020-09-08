@@ -23,8 +23,6 @@
     max-width: 1200px;
 }
 
-
-
 .search-description{
     display: flex;
     justify-content: space-between;
@@ -45,6 +43,14 @@
     display: flex;
     align-items: center;
     margin-bottom: 6px;
+}
+.benefits > ul span svg{
+    width: 1.5vw;
+    height: 1.5vw;
+    min-Height: 25px;
+    min-Width: 25px;
+    max-Height: 45px;
+    max-Width: 45px;
 }
 
 .quick-call-button{

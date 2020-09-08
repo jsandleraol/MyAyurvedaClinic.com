@@ -61,8 +61,8 @@ li {
 
 
 @import './App.css';
-@import './components/Navbar/navbar.css';
+@import './components/navbar/navbar.css';
 @import './components/footer/footer.css';
 @import './components/home/home.css';
-@import './components/search/search.css';
+@import './components/results/results.css';
 @import './components/reusable/reusable.css';
