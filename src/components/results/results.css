@@ -1,32 +1,49 @@
-.search-navbar{
+.results-navbar{
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
     height: 70px;
-    width: 100%;
-    background-color: lightgrey;
+    background-color: #eeeeee;
+}
+.filter{
+    width: 40vw;
+    min-width: 500px;
+    max-width: 1100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .professionals-amount{
     width: auto;
     padding: 8px 12px;
     padding-right: 20px;
-    border-right: 1px solid black
+    border-right: 1px solid black;
+    text-align: center
 }
 
-.search-options{
+.filter-options, .filter-options-selected{
+    position: relative;
     width: auto;
     padding: 12px;
     margin: 0 10px;
     border: 0.5px solid grey;
     box-shadow: 0px 1px 3px rgb(155, 155, 155);
+    background-color: white;
 }
 
-.search-options:hover{
+.filter-options:hover{
     cursor: pointer;
-    background-color: rgb(177, 177, 177)
+    background-color: #f6ffff;
+    border: 0.7px solid rgb(51, 51, 51);
 }
 
+.filter-options-selected{
+    background-color: rgb(172, 172, 172);
+}
+
+.filter-options-selected:hover{
+    cursor: pointer;
+}
 .calendar{
     width: 600px;
     display: flex;
@@ -44,3 +61,4 @@
     text-align: center;
     padding: 12px;
 }
+

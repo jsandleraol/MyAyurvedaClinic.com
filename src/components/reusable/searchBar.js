@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import AutoComplete from './autoComplete'
-import { SearchButton } from "./materialButtons"
+import AutoComplete from './autoComplete';
+import { SearchButton } from "./materialButtons";
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
 import { InputOptions } from '../testimonialData'

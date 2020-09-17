@@ -1,19 +1,22 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Calendar from './calendar'
-import Dropdown from '../reusable/dropdown'
+import FilterOption from './filterOption'
+import { filterData } from '../testimonialData'
 
-const Filter = () => {
-    const [dropdownOpen, setDropdrownOpen] = useState(false)
+
+const Filter = ({setFilter}) => {
     return (
-        <div className="search-navbar">
-            <div className="professionals-amount">247</div>
-            <div className="search-options" onClick={() => setDropdrownOpen(!dropdownOpen)}>
-                Price
-                {dropdownOpen ? <Dropdown />}
-                </div>
-            <div className="search-options">Availabilty</div>
-            <div className="search-options">Gender</div>
-            <div className="search-options"> Languages</div>
+        <div className="results-navbar">
+            <div className="filter">
+            <div className="professionals-amount">247 specialists</div>
+                {filterData.map(singleList =>
+                    <FilterOption
+                        list={singleList}
+                        key={singleList.name}
+                        setFilter={(filterList) => setFilter(filterList)}
+                    />
+                )}
+            </div>
             <Calendar />
         </div>
     )

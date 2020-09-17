@@ -109,19 +109,55 @@ export const testimonialData = [
 
 export const InputOptions = [
     {
-        "name": 'Jonathan',
-        "country": 'Mexico',
+        name: 'Jonathan',
+        country: 'Mexico',
     },
     {
-        "name": 'Aldo Ova',
-        "country": 'Mexico',
+        name: 'Aldo Ova',
+        country: 'Mexico',
     },
     {
-        "name": 'Susana',
-        "country": 'Mexico',
+        name: 'Susana',
+        country: 'Mexico',
     },
     {
-        "name": 'Diabetes',
-        "country": 'Mexico',
+        name: 'Diabetes',
+        country: 'Mexico',
+    },
+]
+
+
+export const filterData = [
+    {
+        name: 'price',
+        options: [
+            'Lowest first',
+            'Highest first'
+        ]
+    },
+    {
+        name: 'availabilty',
+        options: [
+            'Today',
+            'Next 3 Days'
+        ]
+    },
+    {
+        name: 'gender',
+        options: [
+            'Woman',
+            'Man'
+        ]
+    },
+    {
+        name: 'languages',
+        options: [
+            'English',
+            'Mandarin',
+            'Spanish',
+            'Italian',
+            'Hindi',
+            'German'
+        ]
     },
 ]
