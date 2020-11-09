@@ -1,16 +1,18 @@
-.results-navbar{
+.navbarFilter{
     display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     justify-content: space-evenly;
     height: 70px;
     background-color: #eeeeee;
 }
 .filter{
-    width: 40vw;
-    min-width: 500px;
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1350px;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
 }
 
 .professionals-amount{
@@ -20,6 +22,11 @@
     border-right: 1px solid black;
     text-align: center
 }
+
+.calendarWrapper{
+    margin-left: auto;
+}
+
 
 .filter-options, .filter-options-selected{
     position: relative;
@@ -45,9 +52,9 @@
     cursor: pointer;
 }
 .calendar{
-    width: 600px;
+    width: 500px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -62,3 +69,79 @@
     padding: 12px;
 }
 
+.doctorWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.doctorCard{
+    width: 100vw;
+    max-width: 1350px;
+    height: 200px;
+    display: flex;
+    justify-items: center;
+    padding: 10px 0 4px 10px
+}
+
+.doctorCardDescription{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    height: inherit;
+    padding: 0px 15px;
+}
+.doctorNameRating{
+    display: flex;
+    align-items: center;
+}
+
+.doctorName{
+    font-size: 20px;
+}
+
+.ratingNumber{
+    padding-left: 5px;
+}
+.doctorAddress{
+    padding: 2px 0;
+    font-size: 16px 
+}
+.doctorPrice{
+    padding: 4px 0;
+    color: rgb(189, 189, 189);
+    font-size: 14px
+}
+
+.doctorReview{
+    white-space: pre-wrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 370px;
+    max-width: 550px;
+    height: auto;
+    /* text-indent: 20px; */
+    letter-spacing: 1.4px;
+    text-justify: distribute-all-lines;
+    padding-top: 5px;
+}
+
+.doctorAppointments{
+    margin-left: auto;
+    width: 100%;
+    max-width: 500px;
+    min-width: 480px;
+    background-color: khaki;
+}
+
+.doctorSeparator{
+    border: 1px solid #73c5c5;
+    padding: 0;
+    width: 1358px;
+  }

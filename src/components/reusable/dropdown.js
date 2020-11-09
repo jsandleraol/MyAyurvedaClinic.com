@@ -1,30 +1,28 @@
-import React, {useState} from 'react'
+import React from 'react'
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Dropdown = ({ content, setFilter }) => {
-    const [filterList, setFilterList] = useState([]);
 
-    console.log("Selection in dropdown", filterList)
+const Dropdown = ({ content }) => {
+    const filterSelection = useSelector(state => state.filterSelection);
+    const dispatch = useDispatch();
 
-    const setLocalFilter = (newFilter) => {
-        let indexFilter = filterList.indexOf(newFilter);
+    const setFilter = (newFilter) => {
+        let indexFilter = filterSelection.indexOf(newFilter);
 
-        console.log("Local level index", indexFilter)
-
-        indexFilter ?
-        setFilterList([...new Set([...filterList, newFilter])]) :
-        setFilterList(filterList => filterList.filter((filter, i) => i !== indexFilter))
+        indexFilter === -1 ?
+        dispatch({type: 'ADD_FILTER', newFilter}) :
+        dispatch({type: 'REMOVE_FILTER', indexFilter})
     }
 
     return (
         <div className="dropdown">
             {content ? content.map(item =>
-                <div className="dropdown-item" onClick={()=> setLocalFilter(item)} key={item}>
-                    {item}{(filterList.indexOf(item) === -1) ? <RadioButtonUncheckedIcon/> : <CheckCircleIcon/>}
-                    </div>)
+                <div className="dropdown-item" onClick={() => setFilter(item)} key={item}>
+                    {item}{(filterSelection.indexOf(item) === -1) ? <RadioButtonUncheckedIcon /> : <CheckCircleIcon />}
+                </div>)
                 : <div className="dropdown-item">No content to display</div>}
-                <div className="dropdown-apply" onClick={() => setFilter(filterList)}>Apply</div>
         </div>
     )
 }

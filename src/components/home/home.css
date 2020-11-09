@@ -85,6 +85,11 @@
 
 .read-more{
     color: blue;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 .ayurveda-header{

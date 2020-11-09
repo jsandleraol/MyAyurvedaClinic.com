@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Dropdown from '../reusable/dropdown'
 
-const FilterOption = ({ list, setFilter }) => {
+
+const FilterMenu = ({list}) => {
     const [displayOptions, setDisplayOptions] = useState(false)
     const wrapperRef = useRef(null);
 
@@ -29,13 +30,11 @@ const FilterOption = ({ list, setFilter }) => {
             
             {displayOptions ? 
             <Dropdown 
-            content={options} 
-            setFilter={(filterList) => setFilter(filterList)}
-            
+            content={options}
             /> 
             : null}
         </div>
     )
 }
 
-export default FilterOption;
+export default FilterMenu;

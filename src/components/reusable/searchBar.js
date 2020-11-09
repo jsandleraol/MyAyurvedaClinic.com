@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {useSelector} from 'react-redux';
 import AutoComplete from './autoComplete';
 import { SearchButton } from "./materialButtons";
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
-import { InputOptions } from '../testimonialData'
 
 
 
 const SearchBar = ({ displaySmall }) => {
     const [search, setSearch] = useState('');
-    const suggestions = InputOptions;
+    const searchOptions = useSelector(state => state.searchOptions);
     const wrapperRef = useRef(null);
     const [clearSearch, setClearSearch] = useState(false)
     const [displayOptions, setDisplayOptions] = useState(false)
@@ -73,7 +73,7 @@ const SearchBar = ({ displaySmall }) => {
                     </div> : null}
                 {displayOptions && (
                     < AutoComplete
-                        suggestions={suggestions}
+                        suggestions={searchOptions}
                         updateSeach={(search) => updateInput(search)}
                         search={search} />)}
             </div>

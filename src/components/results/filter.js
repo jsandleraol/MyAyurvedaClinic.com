@@ -1,23 +1,26 @@
 import React from 'react'
+import {useSelector} from 'react-redux';
 import Calendar from './calendar'
-import FilterOption from './filterOption'
-import { filterData } from '../testimonialData'
+import FilterMenu from './filterMenu'
 
-
-const Filter = ({setFilter}) => {
+const Filter = ({proAmount}) => {
+    const filters = useSelector(state => state.filters);
+    
     return (
-        <div className="results-navbar">
+        <div className="navbarFilter">
             <div className="filter">
-            <div className="professionals-amount">247 specialists</div>
-                {filterData.map(singleList =>
-                    <FilterOption
-                        list={singleList}
-                        key={singleList.name}
-                        setFilter={(filterList) => setFilter(filterList)}
+            <div className="professionals-amount">{proAmount} specialists</div>
+                {filters.map(filterList =>
+                    <FilterMenu
+                        list={filterList}
+                        key={filterList.name}
                     />
                 )}
+                <div className="calendarWrapper">
+                <Calendar />
+                </div>
             </div>
-            <Calendar />
+            
         </div>
     )
 }

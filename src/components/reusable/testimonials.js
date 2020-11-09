@@ -1,8 +1,11 @@
 import React from 'react';
 import { useEffect, useState, useRef, useCallback } from 'react';
+import {useSelector} from 'react-redux';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 import TestimonialCard from "./testimonialCard"
-import { testimonialData } from '../testimonialData'
+
+
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -11,6 +14,8 @@ const Home = () => {
     const [hasMore, setHasMore] = useState(false);
     const [currentPage] = useState(1)
     const [testimonialsPerPage, setTestimonialsPerPage] = useState(5)
+
+    const testimonialData = useSelector(state => state.testimonials);
 
     const indexOfLastPost = currentPage * testimonialsPerPage;
     const indexOfFirstPost = indexOfLastPost - testimonialsPerPage;
@@ -41,7 +46,7 @@ const Home = () => {
         } else {
             setError(true);
         }
-    }, [])
+    }, [testimonialData])
 
     return (
         <div className="home-testimonials">
@@ -51,7 +56,6 @@ const Home = () => {
                     : (<TestimonialCard user={userList} key={userList.id} />))}
             {loading && <CircularProgress />}
             {error && 'Error'}
-            {/* {testimonialData.length & (testimonialData.map(user => <TestimonialCard user={user} key={user}/>))} */}
         </div>
     )
 }

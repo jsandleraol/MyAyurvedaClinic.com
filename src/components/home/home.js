@@ -40,7 +40,7 @@ const Home = () => {
             of illnesses which provides effective and long-lasting solutions.<br /><br />
             Through Ayurveda, we can find answers to the most complex <br />
             questions about life and be mental, physical and emotionally healthy.<br />
-                        <Link to="/ayurveda" className="read-more">read more</Link></p>
+                    <Link to="/ayurveda" className="read-more">read more</Link></p>
                 </div>
                 <div className="ayurveda-header">
                     <span className="ayurveda-header-textA">What is</span>
