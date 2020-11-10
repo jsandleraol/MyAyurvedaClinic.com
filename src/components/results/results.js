@@ -12,7 +12,7 @@ const Results = () => {
     let filteredDoctors = null;
 
     // check availability of doctors on the back end, before loading Redux state
-    // check based on current time and day, and only day
+    // check based on current time and day, and if it is available
     // during appointment process, check availability every 30sec,
     // retrieve new available options for that same doctor if slot was taken
     doctors = doctors.sort((a, b) => b.rating - a.rating)
@@ -36,7 +36,7 @@ const Results = () => {
         filteredDoctors.sort((a, b) => b.rating - a.rating)
 
     return (
-        <div className="test">
+        <div>
             <Filter proAmount={filterArray.length > 0 ?
                 filteredDoctors.length : doctors.length} />
             <div>

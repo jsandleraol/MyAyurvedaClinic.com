@@ -137,11 +137,46 @@
     width: 100%;
     max-width: 500px;
     min-width: 480px;
-    background-color: khaki;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: khaki; */
+}
+
+.slotWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slots{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .doctorSeparator{
     border: 1px solid #73c5c5;
     padding: 0;
     width: 1358px;
+  }
+
+  .showMore{
+    background-color: #159e9e;
+    width: 100%;
+    max-width: 340px;
+    height: 20px;
+    border-radius: 4px;
+    padding: 5px 0;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .showMore:hover{
+    background-color: #42a8a8;
   }

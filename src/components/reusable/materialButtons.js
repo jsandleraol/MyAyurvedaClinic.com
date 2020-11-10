@@ -36,3 +36,20 @@ export const SearchButton = withStyles((theme) => ({
     // },
   },
 }))(Button);
+
+export const SingleSlot = withStyles((theme) => ({
+  root: {
+    color: theme.palette.getContrastText(teal[500]),
+    // backgroundColor: '#052727',
+    backgroundColor: teal[600],
+    padding: '8px 18px',
+    // border: '1px black solid',
+    borderRadius: '4px',
+    margin: '2.5px 26px',
+    fontSize: '16px',
+    zIndex: '0',
+    '&:hover': {
+      backgroundColor: teal[400],
+    },
+  },
+}))(Button);

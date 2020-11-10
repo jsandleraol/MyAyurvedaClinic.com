@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import StarIcon from '@material-ui/icons/Star';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandText from '../reusable/expandText'
 
+import { SingleSlot } from "../reusable/materialButtons"
 
 const DoctorCard = ({ doctor }) => {
 
-    const { name, address, price, rating, image } = doctor;
+    const { name, address, price, rating, image, slots } = doctor;
     let { review } = doctor;
     const { street, appartment, city, state, zipcode } = address;
     const { appType, appNum } = appartment;
@@ -48,7 +50,19 @@ const DoctorCard = ({ doctor }) => {
                     </div>
                 </div>
                 <div className="doctorAppointments">
-                    Here
+                    <div className="slotWrapper">
+                        {/* {Object.keys(slots).map(slot => new Date(slot).toString().slice(0,10))} */}
+                        {Object.values(slots).map(slot =>
+                            <div className="slots">
+                                {slot.map(slot =>
+                                <SingleSlot variant="contained"> {slot}</SingleSlot>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                    <div className="showMore">
+                        show more <ExpandMoreIcon/>
+                    </div>
                 </div>
             </div>
             <div className="doctorSeparator"></div>
