@@ -13,7 +13,7 @@ const Home = () => {
         <div>
             <div className="top">
                 <div className="header-container">
-                    <div className="header">Customized recovery plans <br /> for every health issue</div>
+                    <div className="header">Tailored solutions <br /> for every health issue</div>
                     <div className="search" >
                         <SearchBar />
                         <div className="search-description">

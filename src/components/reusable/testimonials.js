@@ -7,7 +7,7 @@ import TestimonialCard from "./testimonialCard"
 
 
 
-const Home = () => {
+const Testimonials = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [testimonials, setTestimonials] = useState([]);
@@ -61,4 +61,4 @@ const Home = () => {
 }
 
 
-export default Home;
+export default Testimonials;

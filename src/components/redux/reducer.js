@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 // import axios from 'axios'
 // import { updateCartServer } from './functions'
+import { getNextDay } from '../reusable/getNextDay'
 
 
 const testimonials = (state = [], action) => {
@@ -47,6 +48,27 @@ const doctors = (state = [], action) => {
       return action.payload;
     default:
       return state;
+  }
+}
+
+const today = new Date()
+
+const initialDate = {
+  today: today,
+  tomorrow: getNextDay(today, 1),
+  afterTomorrow: getNextDay(today, 2)
+  }
+
+
+const date = (state = initialDate, action) => {
+  switch (action.type) {
+    case 'UPDATE_DATE':
+      return { state, 
+        today: action.today, 
+        tomorrow: action.tomorrow, 
+        afterTomorrow: action.afterTomorrow }
+    default:
+      return state
   }
 }
 
@@ -227,6 +249,7 @@ export default combineReducers({
   filters,
   filterSelection,
   doctors,
+  date,
   // devURI,
   // user,
   // wishlist,

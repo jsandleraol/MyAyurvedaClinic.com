@@ -51,14 +51,14 @@
 .filter-options-selected:hover{
     cursor: pointer;
 }
-.calendar{
+.calendarFilter{
     width: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.calendar > svg {
+.calendarFilter > svg {
     width: 35px;
     height: 35px;
     cursor: pointer;
@@ -79,7 +79,6 @@
 .doctorCard{
     width: 100vw;
     max-width: 1350px;
-    height: 200px;
     display: flex;
     justify-items: center;
     padding: 10px 0 4px 10px
@@ -96,10 +95,15 @@
 .doctorNameRating{
     display: flex;
     align-items: center;
+    max-width: 550px;
 }
 
 .doctorName{
     font-size: 20px;
+}
+
+.doctorNameRating > .rating{
+margin-left: auto
 }
 
 .ratingNumber{
@@ -138,22 +142,19 @@
     max-width: 500px;
     min-width: 480px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    /* background-color: khaki; */
+    align-items: center;
+    /* justify-content: center; */
 }
 
 .slotWrapper{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
 }
 
 .slots{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .doctorSeparator{
@@ -161,6 +162,7 @@
     padding: 0;
     width: 1358px;
   }
+
 
   .showMore{
     background-color: #159e9e;
@@ -171,7 +173,7 @@
     padding: 5px 0;
     color: white;
     text-align: center;
-    margin-top: 10px;
+    margin: 8px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -179,4 +181,9 @@
   }
   .showMore:hover{
     background-color: #42a8a8;
+  }
+
+  .disableBotton > svg{
+      color: lightgrey;
+      
   }

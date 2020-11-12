@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux';
-import Calendar from './calendar'
+import CalendarFilter from './calendarFilter'
 import FilterMenu from './filterMenu'
 
 const Filter = ({proAmount}) => {
@@ -17,7 +17,7 @@ const Filter = ({proAmount}) => {
                     />
                 )}
                 <div className="calendarWrapper">
-                <Calendar />
+                <CalendarFilter />
                 </div>
             </div>
             

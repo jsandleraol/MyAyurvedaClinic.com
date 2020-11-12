@@ -1,6 +1,6 @@
 // import axios from 'axios'
 import store from './components/redux/store'
-import { testimonials, searchOptions, filters, doctors } from './components/testimonialData'
+import { testimonials, searchOptions, filters, doctors } from './components/Database'
 
 export const initializeAllRequests = async () => {
   // console.log('redux initializing')
