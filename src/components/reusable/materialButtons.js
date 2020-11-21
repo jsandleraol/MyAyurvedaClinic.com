@@ -53,3 +53,12 @@ export const SingleSlot = withStyles((theme) => ({
     },
   },
 }))(Button);
+
+export const EmptySlot = withStyles((theme) => ({
+  root: {
+    color: 'transparent',
+    backgroundColor: 'transparent',
+    borderRadius: '4px',
+    margin: '2.5px 32px',
+  },
+}))(Button);

@@ -63,7 +63,7 @@ const initialDate = {
 const date = (state = initialDate, action) => {
   switch (action.type) {
     case 'UPDATE_DATE':
-      return { state, 
+      return { ...state, 
         today: action.today, 
         tomorrow: action.tomorrow, 
         afterTomorrow: action.afterTomorrow }

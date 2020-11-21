@@ -65,3 +65,4 @@ li {
 @import './components/home/home.css';
 @import './components/results/results.css';
 @import './components/reusable/reusable.css';
+@import './components/reusable/reactCalendar.css';

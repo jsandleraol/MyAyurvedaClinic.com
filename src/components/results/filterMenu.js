@@ -27,12 +27,7 @@ const FilterMenu = ({list}) => {
     return (
         <div className={optionsCSS} ref={wrapperRef}>
             <div onClick={() => setDisplayOptions(!displayOptions)}>{name}</div>
-            
-            {displayOptions ? 
-            <Dropdown 
-            content={options}
-            /> 
-            : null}
+            {displayOptions ? <Dropdown content={options}/> : null}
         </div>
     )
 }
