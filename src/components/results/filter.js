@@ -11,6 +11,7 @@ const Filter = ({proAmount}) => {
     return (
         <div>
             <div className="empty-top-space"></div>
+            <div className="navbarFilterBackground">
             <div className="navbarFilter">
                 <div className="filter">
                     <div className="professionals-amount">{proAmount} specialists</div>
@@ -21,12 +22,11 @@ const Filter = ({proAmount}) => {
                         />
                     )}
                     <Calendar />
-
                 </div>
                 <div className="calendarWrapper">
                     <CalendarFilter />
-
                 </div>
+            </div>
             </div>
         </div>
     )

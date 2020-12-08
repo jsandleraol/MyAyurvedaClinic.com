@@ -14,6 +14,16 @@ const SearchBar = ({ displaySmall }) => {
     const [clearSearch, setClearSearch] = useState(false)
     const [displayOptions, setDisplayOptions] = useState(false)
 
+
+    console.log('options',searchOptions)
+
+    let searchList = searchOptions.map((optionList) => Object.entries(optionList).map(
+        ([category, categoryValue]) => {return category === 'illness' ? categoryValue.map(illnessList => illnessList.list.map(illness => illness))
+        : category === 'products' ? categoryValue.map(product => product.name) : categoryValue.map(doctor => doctor.name.firstName + " " + doctor.name.lastName)
+    }))
+
+    console.log('List', searchList)
+
     const updateSearch = (e) => {
         setSearch(e.target.value);
         if (e.target.value) {

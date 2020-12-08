@@ -23,26 +23,22 @@ const DoctorCard = ({ doctor }) => {
     let i = 0;
 
     const currentDate = new Date()
-    const day = currentDate.toLocaleDateString()
+    const today = currentDate.toLocaleDateString()
     const currentHour = currentDate.getHours() + ":" + (currentDate.getMinutes() < 10 ? '0' + currentDate.getMinutes() : currentDate.getMinutes())
 
     let datesArray = [Object.values(date).map(date => date.toLocaleDateString())]
-    console.log("datesArray", datesArray)
 
-    let filteredDates = Object.entries(slots)
-    .slice(0, 6)
-    .map(
-        ([slot, value]) => {
-            let result = datesArray.some(dates => {
-                return dates.some(filter => slot === filter)
-            })
-            let currentDay = !result ? null : slot !== day ? null : value.filter(time => time >= currentHour).length > 0 ? value.filter(time => time >= currentHour) : "-"
-            result = currentDay ? currentDay : !result ? null : value ? value : '-'
-            return result
-        }).filter(value => value !== null)
+    let filteredDates = Object.entries(slots).slice(0, 6).map(([date, slot]) => {
+        let result = datesArray.some(dates => {
+            return dates.some(filterDate => date === filterDate)
+        })
+        console.log("result", result, slot === null, result && slot === null,'value:', slot, date)
+        let currentDay = result && slot === null ? null : date !== today ? null : slot === null ? null : slot.filter(time => time >= currentHour).length > 0 ? slot.filter(time => time >= currentHour) : "-"
+        result = currentDay ? currentDay : !result && slot !== null ? null : slot !== null ? slot : '-'
+        return result
+    }).filter(value => value !== null)
 
-    console.log("FILTEREDDATES",filteredDates)
-
+    console.log("filteredDates", filteredDates)
     return (
         <div className="doctorWrapper">
             <div className="doctorCard">
@@ -77,26 +73,30 @@ const DoctorCard = ({ doctor }) => {
                 </div>
                 <div className="doctorAppointments">
                     <div className="slotWrapper">
-                        {open ?
-                            Object.values(filteredDates).map(slot => { return Object.values(slot) }).map(slot =>
-                                <div className="slots" key={i++}>
-                                    {slot.map(slot => slot === '-' ?
-                                        <EmptySlot disabled key={slot}></EmptySlot> :
-                                        <SingleSlot variant="contained" key={slot}>{slot}</SingleSlot>)}
-                                </div>
-                            )
-                            :
-                            Object.values(filteredDates).map(slot => { return Object.values(slot).slice(0, 3) }).map(slot =>
-                                <div className="slots" key={i++}>
-                                    {slot.map(slot => slot === '-' ?
-                                        <EmptySlot disabled key={slot}></EmptySlot> :
-                                        <SingleSlot variant="contained" key={slot}>{slot}</SingleSlot>)}
-                                </div>
-                            )
+                        {filteredDates === null ? null :
+                            open ?
+                                Object.values(filteredDates).map(slot => { return Object.values(slot) }).map(slot =>
+                                    <div className="slots" key={i++}>
+                                        {slot.map(slot => slot === '-' ?
+                                            <EmptySlot disabled key={slot}></EmptySlot> :
+                                            <SingleSlot variant="contained" key={slot}>{slot}</SingleSlot>)}
+                                    </div>
+                                )
+                                :
+                                Object.values(filteredDates).map(slot => { return Object.values(slot).slice(0, 3) }).map(slot =>
+                                    <div className="slots" key={i++}>
+                                        {slot.map(slot => slot === '-' ?
+                                            <EmptySlot disabled key={slot}></EmptySlot> :
+                                            <SingleSlot variant="contained" key={slot}>{slot}</SingleSlot>)}
+                                    </div>
+                                )
                         }
                     </div>
                     {Object.values(filteredDates).some(slot => {
-                        return Object.values(slot) !== '-'}) === false ?
+                        let isEmpty = Object.values(slot).some(innerValue => innerValue)
+                        let isAvailable = !Object.values(slot).every(innerValue => innerValue === '-')
+                        return isEmpty === false ? isEmpty : isAvailable
+                    }) === false ?
                         <div className="noAppointmentWrapper">
                             <div className="showMore">
                                 No Appointments Available
@@ -107,14 +107,12 @@ const DoctorCard = ({ doctor }) => {
                             null
                             : open ?
                                 <div className="showMore"
-                                    onClick={() => setOpen(false)}
-                                >
+                                    onClick={() => setOpen(false)}>
                                     show less <ExpandLessIcon />
                                 </div>
                                 :
                                 <div className="showMore"
-                                    onClick={() => setOpen(true)}
-                                >
+                                    onClick={() => setOpen(true)}>
                                     show more <ExpandMoreIcon />
                                 </div>
                     }

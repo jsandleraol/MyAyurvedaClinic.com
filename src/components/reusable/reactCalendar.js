@@ -8,8 +8,8 @@ import TodayIcon from '@material-ui/icons/Today';
 
 
 const ReactCalendar = () => {
-  const [displayOptions, setDisplayOptions] = useState(false)
-  const wrapperRef = useRef(null);
+  const [displayCalendar, setDisplayCalendar] = useState(false)
+  const ref = useRef(null);
   const date = useSelector(state => state.date);
   const dispatch = useDispatch();
 
@@ -21,9 +21,9 @@ const ReactCalendar = () => {
 });
 
 const handleClickOutside = event => {
-    const { current: wrap } = wrapperRef;
+    const { current: wrap } = ref;
     if (wrap && !wrap.contains(event.target)) {
-      setDisplayOptions(false);
+      setDisplayCalendar(false)
     }
 };
 
@@ -36,14 +36,16 @@ const handleClickOutside = event => {
     })
   };
   
-  let optionsCSS = displayOptions ? 'filter-options-selected' : 'filter-options'
+  let optionsCSS = displayCalendar ? 'filter-options-selected' : 'filter-options'
 
   return (
       <div className={optionsCSS}>
-        <TodayIcon onClick={() => setDisplayOptions(!displayOptions)} />
-        {displayOptions ?
-          <div className="dropdown" ref={wrapperRef}>
-            <Calendar onChange={onChange} value={date.today} />
+        <div className="iconWrapper" onClick={() => setDisplayCalendar(!displayCalendar)}>
+        <TodayIcon/>
+        </div>
+        {displayCalendar ?
+          <div className="dropdown" >
+            <Calendar onChange={onChange} value={date.today} minDate={new Date()} inputRef={ref}/>
           </div> : null}
       </div>
   );
