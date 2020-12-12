@@ -28,17 +28,18 @@ const DoctorCard = ({ doctor }) => {
 
     let datesArray = [Object.values(date).map(date => date.toLocaleDateString())]
 
-    let filteredDates = Object.entries(slots).slice(0, 6).map(([date, slot]) => {
+    // if triggered, fetch more appointments from database
+    // let fetchNewDates = Object.keys(slots).some(date => new Date(datesArray[0].[2]) < new Date(date))
+
+    let filteredDates = Object.entries(slots).map(([date, slot]) => {
         let result = datesArray.some(dates => {
             return dates.some(filterDate => date === filterDate)
         })
-        console.log("result", result, slot === null, result && slot === null,'value:', slot, date)
-        let currentDay = result && slot === null ? null : date !== today ? null : slot === null ? null : slot.filter(time => time >= currentHour).length > 0 ? slot.filter(time => time >= currentHour) : "-"
-        result = currentDay ? currentDay : !result && slot !== null ? null : slot !== null ? slot : '-'
+        let currentDay = !result ? null : date !== today ? null : slot === null ? null : slot.filter(time => time >= currentHour).length > 0 ? slot.filter(time => time >= currentHour) : "-"
+        result = currentDay ? currentDay : !result ? null : slot !== null ? slot : '-'
         return result
     }).filter(value => value !== null)
 
-    console.log("filteredDates", filteredDates)
     return (
         <div className="doctorWrapper">
             <div className="doctorCard">

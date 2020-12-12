@@ -17,7 +17,8 @@ const NavBar = () => {
   useEffect(() => {
     setCurrentPath(location.pathname);
   }, [location]);
-  console.log("currentPath", currentPath)
+
+  // console.log("currentPath", currentPath)
 
   let BadgeCSS = {
     margin: '0 2vw 0 0',

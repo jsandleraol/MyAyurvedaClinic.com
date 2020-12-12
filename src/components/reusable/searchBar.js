@@ -1,47 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {useSelector} from 'react-redux';
+import { Link } from "../../../node_modules/react-router-dom";
+import { useSelector } from 'react-redux';
 import AutoComplete from './autoComplete';
 import { SearchButton } from "./materialButtons";
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
-
-
+import { useLocation } from '../../../node_modules/react-router-dom';
 
 const SearchBar = ({ displaySmall }) => {
-    const [search, setSearch] = useState('');
+
     const searchOptions = useSelector(state => state.searchOptions);
     const wrapperRef = useRef(null);
-    const [clearSearch, setClearSearch] = useState(false)
     const [displayOptions, setDisplayOptions] = useState(false)
 
+    const location = useLocation();
+    const { activeSearch } = location
+    const [search, setSearch] = useState(activeSearch ? activeSearch : '');
 
-    console.log('options',searchOptions)
+    // console.log(JSON.stringify(searchOptions, null, 2))
 
-    let searchList = searchOptions.map((optionList) => Object.entries(optionList).map(
-        ([category, categoryValue]) => {return category === 'illness' ? categoryValue.map(illnessList => illnessList.list.map(illness => illness))
-        : category === 'products' ? categoryValue.map(product => product.name) : categoryValue.map(doctor => doctor.name.firstName + " " + doctor.name.lastName)
-    }))
+    let searchList = searchOptions.map(optionList => Object.entries(optionList).map(([category, categoryValue]) => {
+        return (category === 'illness' ? categoryValue.map(illnessList => illnessList.list.map(listArray => listArray)) :
+            category === 'products' ? [categoryValue.map(product => product.name)] :
+                [categoryValue.map(doctor => `${doctor.name.firstName} ${doctor.name.lastName}`)])
+            .reduce((prev, current) => [...prev, ...current], [])
+    }).reduce((prev, current) => [...prev, ...current], []))
+    searchList = searchList.reduce((prev, current) => [...prev, ...current], [])
 
-    console.log('List', searchList)
 
     const updateSearch = (e) => {
         setSearch(e.target.value);
-        if (e.target.value) {
-            setClearSearch(true)
-            setDisplayOptions(true)
-        }
-        else { setClearSearch(false) }
+        e.target.value ? setDisplayOptions(true) : setDisplayOptions(false)
     }
 
     const clearInput = () => {
-        setSearch('');
-        setClearSearch(false)
+        setSearch('')
+        setDisplayOptions(false)
     }
 
     const updateInput = search => {
         setSearch(search)
         setDisplayOptions(false)
-        setClearSearch(true)
     }
 
     let SearchIconCSS = {
@@ -63,6 +62,15 @@ const SearchBar = ({ displaySmall }) => {
         }
     };
 
+
+    const category = searchOptions.map(optionList => Object.entries(optionList).map(([category, categoryValue]) => {
+        return category === 'illness' && categoryValue.some(illnessList => illnessList.list.some(listArray => listArray === search)) ? category :
+            category === 'products' && categoryValue.some(product => product.name === search) ? category : null
+    })).reduce((prev, current) => [...prev, ...current], []).filter(value => value !== null)
+
+    const page = category.some(value => value === 'products') ? '/products' : '/results'
+
+
     let CSSform = displaySmall ? "search-small" : "search-bar"
 
     return (
@@ -75,21 +83,28 @@ const SearchBar = ({ displaySmall }) => {
                     autoComplete="off"
                     placeholder="condition, specialist name, product.."
                     onChange={(e) => updateSearch(e)}
-                    onClick={() => setDisplayOptions(!displayOptions)}
+                    onClick={() => search ? setDisplayOptions(!displayOptions) : null}
                 />
-                {clearSearch ?
+                {search ?
                     <div onClick={() => clearInput()} className="clear-input">
                         <ClearIcon />
                     </div> : null}
                 {displayOptions && (
                     < AutoComplete
-                        suggestions={searchOptions}
+                        suggestions={searchList}
                         updateSeach={(search) => updateInput(search)}
-                        search={search} />)}
+                        search={search} />
+                )}
             </div>
-            <SearchButton variant="contained" disableElevation href="/results">
-                <SearchIcon style={SearchIconCSS} />
-            </SearchButton>
+            <Link to={{ pathname: page, activeSearch: search }}>
+                <SearchButton
+                    variant="contained"
+                    disableElevation
+                // href="/results"
+                >
+                    <SearchIcon style={SearchIconCSS} />
+                </SearchButton>
+            </Link>
         </form>
     )
 }

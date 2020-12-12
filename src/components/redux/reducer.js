@@ -4,6 +4,14 @@ import { combineReducers } from 'redux'
 import { getNextDay } from '../reusable/getNextDay'
 
 
+const location = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_LOCATION':
+      return action.location;
+    default:
+      return state;
+  }
+}
 const testimonials = (state = [], action) => {
   switch (action.type) {
     case 'SET_TESTIMONIALS':
@@ -45,6 +53,15 @@ const filterSelection = (state = [], action) => {
 const doctors = (state = [], action) => {
   switch (action.type) {
     case 'SET_DOCTORS':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+const illnesses = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_ILLNESS':
       return action.payload;
     default:
       return state;
@@ -249,7 +266,9 @@ export default combineReducers({
   filters,
   filterSelection,
   doctors,
+  illnesses,
   date,
+  location,
   // devURI,
   // user,
   // wishlist,
