@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Dropdown from '../reusable/dropdown'
+import Dropdown from './dropdown'
 
 
 const FilterMenu = ({list}) => {

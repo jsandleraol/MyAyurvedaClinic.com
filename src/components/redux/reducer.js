@@ -4,6 +4,15 @@ import { combineReducers } from 'redux'
 import { getNextDay } from '../reusable/getNextDay'
 
 
+const currentSearch = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_SEARCH':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 const location = (state = '', action) => {
   switch (action.type) {
     case 'SET_LOCATION':
@@ -262,6 +271,7 @@ const date = (state = initialDate, action) => {
 
 export default combineReducers({
   testimonials,
+  currentSearch,
   searchOptions,
   filters,
   filterSelection,

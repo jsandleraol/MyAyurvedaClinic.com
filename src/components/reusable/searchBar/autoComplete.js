@@ -1,18 +1,17 @@
 import React from 'react'
 
-const AutoComplete = ({suggestions, search, updateSeach}) => {
+const AutoComplete = ({suggestions, search, updateSeach, cursor}) => {
     return (
         <div className="autocomplete">
-            {search.length > 0 ? suggestions
-                .filter(input => input.toLowerCase().indexOf(search.toLowerCase()) > -1)
-                .map(value => {
+            {search.length > 0 ? 
+            suggestions.map((value, idx) => {
                     return (
                         <div
-                            className="autocomplete-item"
+                            className= {cursor === idx ? "autocomplete-item-highlighted": "autocomplete-item"}
                             onClick={() => updateSeach(value)}
                             key={value}
                             tabIndex="0" >
-                            <span>{value}</span>
+                            <span >{value}</span>
                         </div>
                     );
                 }) : null}

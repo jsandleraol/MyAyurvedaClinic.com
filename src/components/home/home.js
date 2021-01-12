@@ -4,7 +4,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import { ScheduleCall } from "../reusable/materialButtons"
 // import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 
-import SearchBar from "../reusable/searchBar"
+import SearchBar from "../reusable/searchBar/searchBar"
 import Testimonials from "../reusable/testimonials"
 
 const Home = () => {

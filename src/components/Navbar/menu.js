@@ -1,8 +1,8 @@
-import React, { useState } from "../../../node_modules/react";
-import { Link } from "../../../node_modules/react-router-dom";
-import { slide as Menu } from "../../../node_modules/react-burger-menu/lib/BurgerMenu";
-import NavigateNextIcon from '../../../node_modules/@material-ui/icons/NavigateNext';
-import ExitToAppIcon from '../../../node_modules/@material-ui/icons/ExitToApp';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { slide as Menu } from "react-burger-menu";
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const MenuBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

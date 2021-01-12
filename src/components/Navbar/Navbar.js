@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from "../../../node_modules/react";
-import { Link } from "../../../node_modules/react-router-dom";
+import React, {useState} from "react";
+// import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../resources/Ayurveda_Health_Logo.png"
-import ShoppingCartIcon from '../../../node_modules/@material-ui/icons/ShoppingCart';
-import Badge from "../../../node_modules/@material-ui/core/Badge";
-import { useLocation } from '../../../node_modules/react-router-dom';
-import SearchBar from "../reusable/searchBar";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from "@material-ui/core/Badge";
+import { useLocation } from 'react-router-dom';
+import SearchBar from "../reusable/searchBar/searchBar";
 import Menu from './menu'
 
 
 const NavBar = () => {
   const [isLoggedIn] = useState(true);
-  const [currentPath, setCurrentPath] = useState('');
-
   const location = useLocation();
-
-  useEffect(() => {
-    setCurrentPath(location.pathname);
-  }, [location]);
-
-  // console.log("currentPath", currentPath)
+  const currentPath = location.pathname.search("results") > -1
 
   let BadgeCSS = {
     margin: '0 2vw 0 0',
@@ -42,9 +36,7 @@ const NavBar = () => {
             <img src={Logo} alt="logo" className="cover-image" />
           </Link>
         </div>
-        {currentPath === '/results' ?
-          <SearchBar displaySmall={true} />
-          : null}
+        {currentPath ? <SearchBar displaySmall={true} /> : null}
         <div className="navbar-links-container">
           <Link to="/products" className="navbar-links">Products</Link>
           <Link to="/massages" className="navbar-links">Massages</Link>
@@ -52,8 +44,7 @@ const NavBar = () => {
           <Link to="/join" className="navbar-links">Join</Link>
           {isLoggedIn ?
             <div className="navbar-links"> Welcome, Jonathan </div>
-            :
-            <Link to="/login" className="navbar-links"> Welcome, Sign in </Link>}
+            : <Link to="/login" className="navbar-links"> Welcome, Sign in </Link>}
         </div>
         <Badge color="secondary" badgeContent="1" style={BadgeCSS}>
           <ShoppingCartIcon style={ShoppingCartIconCSS} />
