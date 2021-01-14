@@ -4,7 +4,7 @@ import Home from "./components/home/home";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import Results from "./components/results/results";
-import HealthForm from "./components/results/results";
+// import HealthForm from "./components/results/results";
 
 
 
@@ -15,7 +15,7 @@ const App = () => (
       <Route exact path='/' component={Home}/>
       <Route exact path='/results' component={Results}/>
       <Route exact path='/results/:value' component={Results}/>
-      <Route exact path='/health-form' component={HealthForm}/>
+//       <Route exact path='/health-form' component={HealthForm}/>
     </Switch>
     <Footer />
 </Router>
