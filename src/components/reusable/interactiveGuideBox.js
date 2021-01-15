@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 
 const interactiveGuideBox = ({text, top, left}) => {
@@ -12,7 +11,12 @@ const interactiveGuideBox = ({text, top, left}) => {
         <div>
             <div style={CSSBox}>
                 <div className="interactiveBox">
-                    <p className="interactiveBox-text" >{text}</p>
+                    <p className="interactiveBox-text" >{text}
+                    <div className="interactiveBox-wrapper">
+                    <button className="interactiveBox-stop">stop</button>
+                    <button className="interactiveBox-next"> next</button>
+                    </div>
+                    </p>
                 </div>
             </div>
         </div>

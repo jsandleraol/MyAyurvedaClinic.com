@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div>
             <div className="top">
-            <InteractiveBox text={"Welcome! My name is Jonathan Sandler, and I'll explain you a little bit about the features of the site"} top={130} left={70}/>
+            {/* <InteractiveBox text={"Welcome! I'm Jonathan Sandler your guide. Click 'next' to start the tour."} top={'110px'} left={'3vw'}/> */}
                 <div className="header-container">
                     <div className="header">Tailored solutions <br /> for every health issue</div>
                     <div className="search" >
