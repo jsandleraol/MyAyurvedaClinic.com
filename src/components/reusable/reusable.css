@@ -179,6 +179,18 @@ color: gold;
     color: white;
 }
 
+.interactiveBox{
+    max-width: 150px;
+    padding: 10px;
+    background-color:rgb(240, 235, 228);
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 3px rgb(0, 0, 0, 0.3);
+}
+.interactiveBox-text{
+    font-size: 16px;
+    color: black;
+}
+
 @media (max-width: 714px){
     .testimonial-card, .testimonial-card-filled{
         height: auto;

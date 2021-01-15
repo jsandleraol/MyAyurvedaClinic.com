@@ -6,12 +6,14 @@ import { ScheduleCall } from "../reusable/materialButtons"
 
 import SearchBar from "../reusable/searchBar/searchBar"
 import Testimonials from "../reusable/testimonials"
+import InteractiveBox from "../reusable/interactiveGuideBox"
 
 const Home = () => {
 
     return (
         <div>
             <div className="top">
+            <InteractiveBox text={"Welcome! My name is Jonathan Sandler, and I'll explain you a little bit about the features of the site"} top={130} left={70}/>
                 <div className="header-container">
                     <div className="header">Tailored solutions <br /> for every health issue</div>
                     <div className="search" >
