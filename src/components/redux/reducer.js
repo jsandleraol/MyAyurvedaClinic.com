@@ -3,24 +3,34 @@ import { combineReducers } from 'redux'
 // import { updateCartServer } from './functions'
 import { getNextDay } from '../reusable/getNextDay'
 
-
-const currentSearch = (state = [], action) => {
+const guideBoxData = (state = [], action) => {
   switch (action.type) {
-    case 'SET_SEARCH':
+    case 'SET_GUIDE_DATA':
       return action.payload;
     default:
       return state;
   }
 }
 
-const location = (state = '', action) => {
+const guideBoxCounter = (state = 0, action) => {
   switch (action.type) {
-    case 'SET_LOCATION':
-      return action.location;
+    case 'SET_COUNTER':
+      return action.payload;
     default:
       return state;
   }
 }
+
+
+const currentSearch = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_SEARCH':
+      return action.search;
+    default:
+      return state;
+  }
+}
+
 const testimonials = (state = [], action) => {
   switch (action.type) {
     case 'SET_TESTIMONIALS':
@@ -270,6 +280,7 @@ const date = (state = initialDate, action) => {
 // }
 
 export default combineReducers({
+  guideBoxData,
   testimonials,
   currentSearch,
   searchOptions,
@@ -278,7 +289,7 @@ export default combineReducers({
   doctors,
   illnesses,
   date,
-  location,
+  guideBoxCounter,
   // devURI,
   // user,
   // wishlist,

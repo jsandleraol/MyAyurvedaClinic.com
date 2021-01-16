@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import AutoComplete from './autoComplete';
 import { SearchButton } from "../materialButtons";
 import SearchIcon from '@material-ui/icons/Search';
@@ -23,7 +23,6 @@ const SearchBar = ({ displaySmall }) => {
     const [cursor, setCursor] = useState(-1);
     let allSearchValues = getAllSearchValues(filterOptions)
 
-
     const updateSearch = (e) => {
         setSearch(e.target.value);
         e.target.value ? setDisplayOptions(true) : setDisplayOptions(false)
@@ -42,7 +41,6 @@ const SearchBar = ({ displaySmall }) => {
     useEffect(() => {
         if (activeSearch) updateInput(activeSearch)
     }, [activeSearch])
-
 
 
     useEffect(() => {

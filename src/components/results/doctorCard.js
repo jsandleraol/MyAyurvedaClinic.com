@@ -35,7 +35,12 @@ const DoctorCard = ({ doctor }) => {
         let result = datesArray.some(dates => {
             return dates.some(filterDate => date === filterDate)
         })
-        let currentDay = !result ? null : date !== today ? null : slot === null ? null : slot.filter(time => time >= currentHour).length > 0 ? slot.filter(time => time >= currentHour) : "-"
+        let currentDay = !result ? null
+            : date !== today ? null
+                : slot === null ? null
+                    : slot.filter(time => time >= currentHour).length > 0 ? slot.filter(time => time >= currentHour)
+                        : "-"
+
         result = currentDay ? currentDay : !result ? null : slot !== null ? slot : '-'
         return result
     }).filter(value => value !== null)

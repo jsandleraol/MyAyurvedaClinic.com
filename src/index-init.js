@@ -1,6 +1,6 @@
 // import axios from 'axios'
 import store from './components/redux/store'
-import { testimonials, searchOptions, filters, doctors, illness } from './components/Database'
+import { testimonials, searchOptions, filters, doctors, illness, guideBoxData } from './components/Database'
 
 export const initializeAllRequests = async () => {
   // console.log('redux initializing')
@@ -9,6 +9,7 @@ export const initializeAllRequests = async () => {
      await getFilters()
      await getDoctors()
      await getIllness()
+     await getGuideBoxData()
 //   await getAllCategories()
 //   await getAllProducts()
 //   axios
@@ -49,6 +50,10 @@ const getDoctors = () => {
 
 const getIllness = () => {
     store.dispatch({ type: 'SET_ILLNESS', payload: illness })
+}
+
+const getGuideBoxData = () => {
+    store.dispatch({ type: 'SET_GUIDE_DATA', payload: guideBoxData })
 }
 
 // const getURI = () => {

@@ -4,6 +4,8 @@ import { useLocation } from '../../../node_modules/react-router-dom';
 import { getCategory } from '../reusable/searchBar/getCategory';
 import DisplayDoctors from './displayDoctors'
 import DisplayProducts from './displayProducts'
+import InteractiveBox from "../reusable/interactiveGuideBox"
+
 // import { Search } from '@material-ui/icons';
 // import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -21,6 +23,7 @@ const Results = () => {
                 <DisplayDoctors activeSearch={activeSearch} />
                 : category[0] === 'products' ? <DisplayProducts activeSearch={activeSearch} />
                     : <div className="resultsErrorMessage">Sorry, there are no results available for {activeSearch}</div>}
+            <InteractiveBox />
         </div>
     )
 }

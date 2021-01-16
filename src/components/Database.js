@@ -115,13 +115,13 @@ export const filters = [
             'Lowest first',
         ]
     },
-    {
-        name: 'availabilty',
-        options: [
-            'Today',
-            'Next 3 Days'
-        ]
-    },
+    // {
+    //     name: 'availabilty',
+    //     options: [
+    //         'Today',
+    //         'Next 3 Days'
+    //     ]
+    // },
     {
         name: 'gender',
         options: [
@@ -463,5 +463,48 @@ export const searchOptions = [
         illness,
         products,
         doctors,
+    },
+]
+
+export const guideBoxData = [
+    {
+        text: "Welcome! I'm Jonathan Sandler your guide. Click 'start' to begin the tour.",
+        top: '130px',
+        left: '3vw',
+    },
+    {
+        text: "The search bar filters 3 different databases to provide a more complete experience to the user.",
+        top: '240px',
+        left: '60vw',
+    },
+    {
+        text: "It also provides with an autocomplete method for fast searches, in the event of typing only a couple of letters it auto selects the most relevant option.",
+        top: '430px',
+        left: '30vw',
+    },
+    {
+        text: "The website was made using JavaScript, React, Redux, Node, and Express. The goal is to allow the user to select their preferred (Ayurveda) Professional, book an appointment, and have an online consultation all using the same platform.",
+        top: '870px',
+        left: '20vw',
+    },
+    {
+        text: "Testimonials were made using a combination of Infinite scrolling and pagination. There's also an algorithm that changes the background to some of them just to make it website more stylish.",
+        top: '1500px',
+        left: '65vw',
+    },
+    {
+        text: "The search bar is reused and allows users to make a search at any time. Based on the search, the algorithm filters doctors based on their specialties or it shows the products page.",
+        top: '150px',
+        left: '3vw',
+    },
+    {
+        text: "It also provides a second search engine that filters the first round of results.",
+        top: '150px',
+        left: '30vw',
+    },
+    {
+        text: "Lastly, appointments are shown based on availability, any appointment older than the current time is deleted.",
+        top: '350px',
+        left: '70vw',
     },
 ]
