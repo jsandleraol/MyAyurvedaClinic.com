@@ -5,18 +5,46 @@ import { Link } from "react-router-dom";
 
 const InteractiveGuideBox = () => {
     let [count, setCount] = useState(0)
-    const [open, setOpen] = useState(true)
+    let [open, setOpen] = useState(true)
     const guideData = useSelector(state => state.guideBoxData);
     const reduxCounter = useSelector(state => state.guideBoxCounter);
     const dispatch = useDispatch()
 
     const updateCounter = () => {
-        dispatch({ type: 'SET_COUNTER', payload: count + 1 })
-    }
+        dispatch({ 
+            type: 'SET_COUNTER',
+            count: count + 1,
+        });
+        if(count === 4) window.scrollTo({top: 0, behavior: 'smooth'})
+    };
+
+    const updateOpen = () => {
+        dispatch({
+            type: 'SET_STATE',
+            open: false,
+        })
+    };
+
+    // const onChange = date => {
+    //     dispatch({
+    //         type: 'UPDATE_DATE',
+    //         today: getNextDay(date, 0),
+    //         tomorrow: getNextDay(date, 1),
+    //         afterTomorrow: getNextDay(date, 2),
+    //     })
+    //   };
+
+    // const updateCounter = () => {
+    //     dispatch({ type: 'SET_STATE', payload: count + 1 })
+    // }
 
     useEffect(() => {
-        if (reduxCounter) setCount(reduxCounter)
-    }, [reduxCounter])
+        if (reduxCounter.count) setCount(reduxCounter.count)
+    }, [reduxCounter.count])
+
+    useEffect(() => {
+        reduxCounter.open ? setOpen(reduxCounter.open) : setOpen(reduxCounter.open)
+    }, [reduxCounter.open])
 
 
     const text = guideData.length > 0 ? Object.entries(guideData[count]).map(([key, value]) => { return key === "text" ? value : null }).filter(value => value !== null) : ''
@@ -34,7 +62,7 @@ const InteractiveGuideBox = () => {
                 {open ? <div className="interactiveBox">
                     <button
                         className="interactiveBox-close"
-                        onClick={() => setOpen(false)}
+                        onClick={() => updateOpen()}
                     >
                         x
                 </button>
@@ -48,7 +76,7 @@ const InteractiveGuideBox = () => {
                             : count === (guideData.length - 1)
                                 ? <button
                                     className="interactiveBox-next"
-                                    onClick={() => setOpen(false)}
+                                    onClick={() => updateOpen()}
                                 >
                                     close
                                 </button>

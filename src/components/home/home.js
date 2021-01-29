@@ -12,6 +12,7 @@ const Home = () => {
 
     return (
         <div>
+            <div className="homeContainer">
             <div className="top">
                 <div className="header-container">
                     <div className="header">Tailored solutions <br /> for every health issue</div>
@@ -50,6 +51,7 @@ const Home = () => {
             </div>
             <Testimonials />
             <InteractiveBox />
+        </div>
         </div>
     )
 }

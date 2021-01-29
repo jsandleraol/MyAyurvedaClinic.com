@@ -24,6 +24,7 @@ const SearchBar = ({ displaySmall }) => {
     let allSearchValues = getAllSearchValues(filterOptions)
 
     const updateSearch = (e) => {
+        e.preventDefault()
         setSearch(e.target.value);
         e.target.value ? setDisplayOptions(true) : setDisplayOptions(false)
     }
@@ -114,11 +115,17 @@ const SearchBar = ({ displaySmall }) => {
         height: '30px',
     }
 
+const onSubmit = e =>{
+    e.preventDefault(e)
+    window.location.replace(page)
+    // window.open(page)
+}
+
     return (
         <form
             className={CSSform}
             ref={searchContainerRef}
-            onSubmit={(e) => e.preventDefault()}>
+            onSubmit={(e) => onSubmit(e)}>
             <div className="bar-input">
                 <input className="input"
                     type="text"
@@ -128,13 +135,17 @@ const SearchBar = ({ displaySmall }) => {
                     placeholder="condition, specialist name, product.."
                     onChange={(e) => updateSearch(e)}
                     onKeyDown={e => keyboardNavigation(e)}
-                    onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }}
+                    // onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }}
                     onClick={() => search ? setDisplayOptions(!displayOptions) : null}
+                    maxlength={20} 
                 />
                 {search ?
-                    <div onClick={() => clearInput()} className="clear-input">
+                    <div 
+                    onClick={() => clearInput()} 
+                    className="clear-input">
                         <ClearIcon />
-                    </div> : null}
+                    </div> 
+                    : null}
                 {displayOptions && (
                     < AutoComplete
                         suggestions={filteredOptionList}

@@ -1,3 +1,6 @@
+.homeContainer{
+    z-index: -1;
+}
 .top{
     margin: 60px 0 200px 0;
 }

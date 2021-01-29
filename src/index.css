@@ -66,3 +66,4 @@ li {
 @import './components/results/results.css';
 @import './components/reusable/reusable.css';
 @import './components/reusable/reactCalendar.css';
+@import './components/modal/modal.css';

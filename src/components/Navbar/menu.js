@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useSelector} from 'react-redux';
 
-const MenuBar = () => {
+
+const MenuBar = ({updateRef}) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLoggedIn] = useState(true);
+  const isLoggedIn = useSelector(state => state.user.login)
+  const userName = useSelector(state => state.user.name)
 
-  // const toggleMenu = () => {
-  //     setMenuOpen(!menuOpen);
-  //   };
 
   const stateChangeHandler = (newState) => {
     setMenuOpen(newState.isOpen);
@@ -28,9 +28,9 @@ const MenuBar = () => {
           // onFocus={e => e.target.blur()}
           >
           {isLoggedIn ?
-            <div className="welcome-text-menu"> Welcome, Jonathan </div>
+            <div className="welcome-text-menu" onClick={() => updateRef()}> Welcome, {userName} </div>
             :
-            <Link to="/login" className="welcome-text-menu"><div className="bm-item-text"> Welcome,  log in <ExitToAppIcon /></div></Link>}
+            <div onClick={() => updateRef()} className="welcome-text-menu"><div className="bm-item-text"> Welcome,  log in <ExitToAppIcon /></div></div>}
           <Link to="/account" ><div className="bm-item-text">Your Account <NavigateNextIcon /></div></Link>
           <Link to="/profile"><div className="bm-item-text">Your Profile<NavigateNextIcon /></div></Link>
           <Link to="/appointments"><div className="bm-item-text">Your Appointments<NavigateNextIcon /></div></Link>

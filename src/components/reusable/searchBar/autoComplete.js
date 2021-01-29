@@ -4,7 +4,7 @@ const AutoComplete = ({suggestions, search, updateSeach, cursor}) => {
     return (
         <div className="autocomplete">
             {search.length > 0 ? 
-            suggestions.map((value, idx) => {
+            suggestions.sort().map((value, idx) => {
                     return (
                         <div
                             className= {cursor === idx ? "autocomplete-item-highlighted": "autocomplete-item"}

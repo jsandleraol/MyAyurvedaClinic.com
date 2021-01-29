@@ -12,16 +12,6 @@ const guideBoxData = (state = [], action) => {
   }
 }
 
-const guideBoxCounter = (state = 0, action) => {
-  switch (action.type) {
-    case 'SET_COUNTER':
-      return action.payload;
-    default:
-      return state;
-  }
-}
-
-
 const currentSearch = (state = [], action) => {
   switch (action.type) {
     case 'SET_SEARCH':
@@ -107,6 +97,46 @@ const date = (state = initialDate, action) => {
       return state
   }
 }
+
+const guideBox = {
+  count: 0,
+  open: true
+  }
+
+const guideBoxCounter = (state = guideBox, action) => {
+  switch (action.type) {
+    case 'SET_COUNTER':
+      return { ...state, 
+        count: action.count}
+    case 'SET_STATE':
+      return { ...state, 
+        open: action.open}
+    default:
+      return state;
+  }
+}
+
+const userSchema = {
+  name: '',
+  login: false
+  }
+
+const user = (state = userSchema, action) => {
+  switch (action.type) {
+    case 'NEW_SESSION':
+      return { ...state, 
+        name: action.name,
+      login: true}
+    case 'CLOSE_SESSION':
+      return { ...state,
+        name: '', 
+        login: false}
+    default:
+      return state;
+  }
+}
+
+
 
 // const initialUser = {
 //   email: '',
@@ -280,6 +310,7 @@ const date = (state = initialDate, action) => {
 // }
 
 export default combineReducers({
+  user,
   guideBoxData,
   testimonials,
   currentSearch,

@@ -11,7 +11,7 @@
   width: 100%;
   height: 60px;
   background-color: whitesmoke;
-  z-index: 100;
+  z-index: 10;
 }
 
 .logo-container{
@@ -34,16 +34,16 @@ object-fit: cover
 }
 
 .navbar-links-container{
+  display: flex;
   margin-left: auto;
-  width: 100%;
-  max-width: 580px;
 }
 
 .navbar-links{
+  margin-left: auto;
   display: inline-block;
-  margin: 0 7px;
+  margin: 0 10px;
   color: black;
-  font-size: min(2.5vw, 20px);
+  font-size: clamp(16px, 2vw, 18px);
   cursor: pointer;
 }
 .navbar-links:hover{
@@ -200,6 +200,9 @@ font-size: 20px;
   .bm-burger-button {
     width: 24px;
     height: 17px;
+  }
+  .navbar-links{
+    margin: 0 8px;
   }
 
 }

@@ -12,6 +12,7 @@ import InteractiveBox from "../reusable/interactiveGuideBox"
 
 const Results = () => {
     const filterOptions = useSelector(state => state.searchOptions);
+    const reduxCounter = useSelector(state => state.guideBoxCounter);
     const location = useLocation();
     const activeSearch = location.pathname.split("results/")[1]
 
@@ -22,8 +23,8 @@ const Results = () => {
             {category[0] === 'illness' || !activeSearch ?
                 <DisplayDoctors activeSearch={activeSearch} />
                 : category[0] === 'products' ? <DisplayProducts activeSearch={activeSearch} />
-                    : <div className="resultsErrorMessage">Sorry, there are no results available for {activeSearch}</div>}
-            <InteractiveBox />
+                    : <div className="resultsErrorMessage">Sorry, there are no results available for "{activeSearch}"</div>}
+            {reduxCounter.count > 0 ? <InteractiveBox /> : null}
         </div>
     )
 }
