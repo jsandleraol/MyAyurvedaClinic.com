@@ -1,10 +1,11 @@
-import React from 'react';
+import React,{useRef, useEffect} from 'react';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { useDispatch } from 'react-redux';
 
 
 const Logout = ({ closeRef }) => {
     const dispatch = useDispatch();
+    const searchContainerRef = useRef();
 
     const removeUserName = () => {
         dispatch({
@@ -13,8 +14,22 @@ const Logout = ({ closeRef }) => {
         closeRef()
     }
 
+    useEffect(() => {
+        window.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            window.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+
+    const handleClickOutside = event => {
+        const { current: wrap } = searchContainerRef;
+        if (wrap && !wrap.contains(event.target)) {
+            closeRef();
+        }
+    };
+
     return (
-        <div className="sessionContainer">
+        <div className="sessionContainer" ref={searchContainerRef}>
             <div className="formContainer">
                 <div className="login-title">Are you sure you want to log out?</div>
                 <div className="bar-input-close-session">

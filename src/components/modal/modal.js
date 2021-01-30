@@ -1,4 +1,4 @@
-import React, { useEffect, useImperativeHandle, useState, forwardRef, useCallback} from 'react'
+import React, { useEffect, useImperativeHandle, useState, forwardRef, useCallback, } from 'react'
 import { createPortal } from 'react-dom'
 
 const modalElement = document.getElementById('modal-root')
@@ -27,9 +27,12 @@ export function Modal({ children, fade = false, defaultOpened = false }, ref) {
     }, [handleEscape, isOpen])
 
 
+
+
     return createPortal(
         isOpen ? (
-            <div className={`modal ${fade ? 'modal-fade' : ''}`}>
+            <div className={`modal ${fade ? 'modal-fade' : ''}`} 
+            >
                 {children}
             </div>
         ) : null,

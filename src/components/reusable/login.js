@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ClearIcon from '@material-ui/icons/Clear';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { useDispatch } from 'react-redux';
@@ -8,6 +8,8 @@ const Login = ({ closeRef }) => {
     const [error, setError] = useState(false)
     const dispatch = useDispatch();
 
+    const searchContainerRef = useRef();
+
     const clearInput = () => {
         setUserName('')
     }
@@ -15,6 +17,22 @@ const Login = ({ closeRef }) => {
     const keyboardNavigation = (e) => {
         if (e.key === "Escape") setUserName('')
     }
+
+
+    useEffect(() => {
+        window.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            window.removeEventListener("mousedown", handleClickOutside);
+        };
+    });
+
+    const handleClickOutside = event => {
+        const { current: wrap } = searchContainerRef;
+        if (wrap && !wrap.contains(event.target)) {
+            closeRef();
+        }
+    };
+
 
     const onSubmit = (e) => {
         if(userName){
@@ -30,7 +48,7 @@ const Login = ({ closeRef }) => {
     }
 
     return (
-        <div className="sessionContainer">
+        <div className="sessionContainer" ref={searchContainerRef}>
             <div className="formContainer">
                 <div className="login-title">Welcome, Log in</div>
                 <form
