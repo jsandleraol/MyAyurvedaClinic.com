@@ -2,7 +2,7 @@
 import React, {useState,useEffect, useRef} from "react";
 import Calendar from "react-calendar";
 import { useSelector, useDispatch } from 'react-redux';
-import { getNextDay } from "./getNextDay";
+import { getNextDay } from "../getNextDay";
 
 import TodayIcon from '@material-ui/icons/Today';
 

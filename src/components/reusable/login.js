@@ -44,7 +44,7 @@ const Login = ({ closeRef }) => {
                             placeholder="Enter your name to begin"
                             onChange={(e) => setUserName(e.target.value)}
                             onKeyDown={e => keyboardNavigation(e)}
-                            maxlength={20}
+                            maxLength={20}
                         // onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }}
                         />
                         {userName ?

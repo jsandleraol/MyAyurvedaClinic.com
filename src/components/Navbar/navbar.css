@@ -28,14 +28,15 @@ margin-right: 20px;
 .cover-image{
 width: 100%;
 height: 100%;
-min-height: 30px;
-min-width: 30px;
+min-height: 60px;
+min-width: 60px;
 object-fit: cover
 }
 
 .navbar-links-container{
   display: flex;
   margin-left: auto;
+  min-width: 300px;
 }
 
 .navbar-links{
@@ -191,7 +192,7 @@ font-size: 20px;
 
 
 
-@media (max-width: 600px){
+@media (max-width: 700px){
   .bm-menu {
     width: 100vw;
     height: 92vh !important;
@@ -204,5 +205,18 @@ font-size: 20px;
   .navbar-links{
     margin: 0 8px;
   }
+  
+  .logo-container{
+  visibility: hidden;
+  width: 0;
+  margin-right: 0;
+  }
+}
 
+@media (max-width: 1115px){
+  .navbar-links-container{
+    visibility: hidden;
+    width: 0;
+    min-width: 0;
+  }
 }

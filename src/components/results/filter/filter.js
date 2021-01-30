@@ -2,7 +2,7 @@ import React from 'react'
 import {useSelector} from 'react-redux';
 import CalendarFilter from './calendarFilter'
 import FilterMenu from './filterMenu'
-import Calendar from '../../reusable/reactCalendar'
+import Calendar from '../../reusable/reactCalendar/reactCalendar'
 
 
 const Filter = ({proAmount}) => {

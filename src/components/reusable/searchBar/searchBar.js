@@ -137,7 +137,7 @@ const onSubmit = e =>{
                     onKeyDown={e => keyboardNavigation(e)}
                     // onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault() }}
                     onClick={() => search ? setDisplayOptions(!displayOptions) : null}
-                    maxlength={20} 
+                    maxLength={20} 
                 />
                 {search ?
                     <div 

@@ -1,95 +1,10 @@
-.navbarFilterBackground{
-    position: fixed;
-    top: 72px;
-    display: flex;
-    width: 100%;
-    height: 70px;
-    background-color: #eeeeee;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-.navbarFilter{    
-    display: flex;
-    width: 100%;
-    max-width: 1350px;
-    align-items: center;
-    justify-content: space-evenly;
 
-}
-.filter{
-    width: 100%;
-    max-width: 1350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.professionals-amount{
-    width: auto;
-    padding: 8px 12px;
-    padding-right: 20px;
-    border-right: 1px solid black;
-    text-align: center
-}
-
-.calendarWrapper{
-    margin-left: auto;
-}
-
-
-.filter-options, .filter-options-selected{
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    margin: 0 10px;
-    max-height: 18px;
-    border: 0.5px solid grey;
-    box-shadow: 0px 1px 3px rgb(155, 155, 155);
-    background-color: white;
-}
-
-.filter-options:hover{
-    cursor: pointer;
-    background-color: #f6ffff;
-    border: 0.7px solid rgb(51, 51, 51);
-}
-
-.filter-options-selected{
-    background-color: rgb(172, 172, 172);
-}
-
-.filter-options-selected:hover{
-    cursor: pointer;
-}
 
 .iconWrapper > svg{
     height: 28px;
     width: 40px;
 }
-.calendarFilter{
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.calendarFilter > svg {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-}
-.daysWrapper{
-    display: flex;
-    width: 100%;
-    max-width: 385px;
-    justify-content: space-around;
-    align-items: center;
-}
-.calendarDay{
-    text-align: center;
-}
 
 .doctorWrapper{
     display: flex;
@@ -97,14 +12,20 @@
     justify-content: center;
     flex-direction: column;
 }
+.doctorCard-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1500px;
+}
 
 .doctorCard{
     width: 100%;
-    max-width: 1350px;
     min-height: 180px;
     display: flex;
-    justify-items: center;
+    justify-content: center;
     padding: 10px 0;
+    min-width: 700px;
 }
 
 .doctorCardDescription{
@@ -146,24 +67,22 @@ margin-left: auto
     white-space: pre-wrap; 
     overflow: hidden;
     text-overflow: ellipsis;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    min-width: 370px;
     max-width: 550px;
-    height: auto;
     /* text-indent: 20px; */
     letter-spacing: 1.4px;
     text-justify: distribute-all-lines;
     padding-top: 5px;
 }
 
-.doctorAppointments{
-    margin-left: auto;
+.doctorAppointments-container{
     width: 100%;
-    max-width: 500px;
-    min-width: 480px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.doctorAppointments{
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,8 +90,8 @@ margin-left: auto
 
 .slotWrapper{
     display: flex;
-    flex-direction: row;
-    width: 385px;
+    justify-content: center;
+    width: 100%;
 }
 
 .slots{
@@ -186,7 +105,7 @@ margin-left: auto
     max-width: 1380px;
   }
 
-  .showMore{
+  .showMore, .hidden-appointment-button{
     background-color: #159e9e;
     width: 100%;
     max-width: 340px;
@@ -202,9 +121,10 @@ margin-left: auto
     cursor: pointer;
   }
   
-  .showMore:hover{
+  .showMore:hover, .hidden-appointment-button:hover{
     background-color: #42a8a8;
   }
+  
 .noAppointmentWrapper{
     width: 100%;
     height: 100%;
@@ -212,6 +132,35 @@ margin-left: auto
     justify-content: center;
     align-items: center;
 }
+
+.hiddenCalendar{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden-appointment-button{
+    visibility: hidden;
+    max-width: none;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.hiddenSlotWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
   .disableBotton > svg{
       color: lightgrey;
       height: 36px;
@@ -227,3 +176,70 @@ margin-left: auto
       align-items: center;
       justify-content: center;
   }
+
+  @media (max-width: 1200px){
+    /* .showMore{
+        max-width: 320px;
+      } */
+}
+
+  @media (max-width: 1115px){
+    .doctorCard{
+        min-width: 0;
+        min-height: 0;
+    }
+    .doctorCard-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .doctorCardDescription{
+        width: auto;
+        max-width: none;
+    }
+    .hidden-appointment-button{
+        visibility: visible;
+        width: 100%;
+        height: 20px;
+        padding: 5px 0;
+        margin: 8px 0;
+        margin-bottom: 20px;
+    }
+    .hiddenCalendar{
+        visibility: visible;
+        width: auto;
+        height: auto;
+    }
+    .hiddenSlotWrapper{
+        width: 100%;
+        height: auto;
+        visibility: visible;
+        margin: 10px 0;
+    }
+    .slotWrapper{
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .showMore{
+        visibility: hidden;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+@media (max-width: 600px){
+    .doctorAddress{
+        font-size: 15px;
+    }
+
+    .doctorReview{
+        visibility: hidden;
+        width: none;
+    }
+    .doctorCardDescription{
+        height: 150px;
+    }
+
+}
